@@ -39,6 +39,7 @@ Documentation at Team-A-Doc folder
 #######################
 
 Register Patient
+
 1. Click Patient Registration.
 2. Enter indicated information.
 3. Click register.
@@ -50,15 +51,18 @@ Register Patient
 9. Click save
 
 PatientNurseDoctor Login
+
 1. Click User Login
 2. Enter information (like already include Patient 'Bowser' Password '1234')
 3. Click Login
 
 See appointments and prescriptions
+
 1. Do to 'PatientNurseDoctor Login' task example.
 2. Click appointments or prescriptions
 
 Add appointmentsprescriptions
+
 1. Click Administrator Login.
 2. Enter an administrator user (or use default 'user123')
 3. Click Appointments or Prescriptions
@@ -67,6 +71,7 @@ Add appointmentsprescriptions
 6. Click save
 
 Register NurseDoctor
+
 1. Click Administrator Login.
 2. Enter an administrator user (or use default 'user123')
 3. Click Users
@@ -79,6 +84,7 @@ Register NurseDoctor
 10. Click save
 
 Register Administrator
+
 1. Click Administrator Login
 2. Enter an administrator user
 3. Click Users
