@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}HealthNet{% endblock %}
+
+{% block body_block %}
+
+    {% if user.is_authenticated %}
+        <!-- This redirects to the user page if a user is logged in /-->
+        <script language="javascript">
+            window.location.href ="{% url "user:home" %}"
+        </script>
+
+    {% endif %}
+
+    <div class="page-header">
+        <h1>Welcome to HealthNet<p class="lead" style="">by Team A</p></h1>
+    </div>
+
+
+    <div class="container-fluid">
+        <!-- Example row of columns -->
+        <div class="row">
+            <div class="col-md-4">
+                <h2>What is HealthNet?</h2>
+                <hr>
+                <p>HealthNet is an application that enables hospitals in the US to be able to communicate between employees and patients.  It provides an easy mechanism for managing employees, gathering statistical data on the inner workings of the hospital, signing up patients, making appointments, and allowing ease of transfer of both patients and their information between hospitals</p>
+            </div>
+
+            <div class="col-md-4">
+                <h2>Info about HealthNet App</h2>
+                <hr>
+                <p>HealthNet App is an original application developed by Team_A. It allows users to register, update patient profile, create patient appointment and view patient medical information.</p>
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="col-md-3">
+                    <span class="easyChart" data-percent="58">
+                    <span class="percent"></span>
+                    </span>
+                </div>
+
+                <h2>Contact</h2>
+                <hr>
+                <p1>Team Members</p1>
+                <p> Scott Baron	 - Team Coordinator</p>
+                <p> Martin Suarez- Development Coordinator</p>
+                <p> Zachary Glassner- Requirements Coordinator</p>
+                <p> Brian Mejorado	- Test Coordinator</p>
+                <p> Han Thu	- Configuration/QA Coordinator</p>
+            </div>
+
+        </div>
+    </div>
+
+
+    <h1 style="padding-left: 33%"><a class="btn btn-lg btn-primary" href="{% url 'user:register' %}" role="button">Sign up today</a></h1>
+
+    </div>
+
+{% endblock %}
+</html>

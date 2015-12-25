@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Profile{% endblock %}
+
+{% block side_block %}
+
+{% endblock %}
+
+{% block body_block %}
+    <div class="container-fluid">
+        {% if user.is_authenticated %}
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="page-header" style="">
+                        <h1>Welcome to HealthNet, {{ user.profile.get_name }}</h1>
+                    </div>
+                    <div class="profile-tabs">
+                        <ul class="nav nav-tabs" style="">
+                            <li role="presentation"><a
+                                    href="{% url "user:profile" username=user.username %}">User Details</a></li>
+                            <li role="presentation"><a href="{% url "user:med_his:insurance" username=user.username %}">Insurance</a>
+                            </li>
+                            <li role="presentation"><a href="{% url 'user:contact' username=user.username %}">Emergency
+                                Contacts</a></li>
+                            <li role="presentation"><a href="{% url 'user:med_his:appointments' %}">Appointments</a>
+                            <li role="presentation"><a
+                                    href="{% url "user:med_his:conditions" username=user.username %}">Conditions</a>
+                            </li>
+                            <li role="presentation" class="active"><a
+                                    href="{% url "user:med_his:tests" username=user.username %}">Test Results</a></li>
+                            <li role="presentation"><a
+                                    href="{% url "user:med_his:prescriptions" username=user.username %}">Prescriptions</a>
+                            </li>
+                            <li role="presentation"><a
+                                    href="{% url "user:med_his:export" username=user.username %}">Export</a></li>
+                        </ul>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><strong>{{ user.profile.get_name }} Test Results:</strong></h3>
+                        </div>
+                        <ul class="list-group" id="accordion" role="tablist" aria-multiselectable="true">
+                            {% for item in test_results %}
+                                {% if item.released %}
+                                    <div class="list-group-item">
+                                        <div class="list-group-item-heading" role="tab" id="heading{{ item.pk }}">
+                                            <h4 class="panel-title panel-heading">
+                                                <a data-toggle="collapse" data-parent="#accordion"
+                                                   href="#collapse{{ item.pk }}" aria-expanded="true"
+                                                   aria-controls="collapse{{ item.pk }}">
+                                                    <span class="col-sm-3">{{ item.test_name }}</span>
+                                                    <span class="col-sm-3 text-right">{{ item.date_published }}</span>
+                                                    <span class="col-sm-3"></span>
+                                                </a>
+                                            </h4>
+
+                                            <div id="collapse{{ item.pk }}" class="panel-collapse collapse out"
+                                                 role="tabpanel" aria-labelledby="heading{{ item.pk }}">
+                                                <div class="panel-body">
+                                                    <div class="media col-sm-offset-1">
+                                                        <div class="media-left">
+                                                            <a href="{{ item.report.url }}" download>
+                                                                <h2 class="glyphicon glyphicon-cloud-download"></h2>
+                                                            </a>
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <span class="row">Patient: {{ item.user }}</span>
+                                                            <span class="row">Date: {{ item.pub_date }}</span>
+                                                            <span class="row">Notes: {{ item.direction }}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            </div>
+        {% endif %}
+{% endblock %}
+</html>

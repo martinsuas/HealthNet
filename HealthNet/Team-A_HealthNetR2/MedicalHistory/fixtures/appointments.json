@@ -1,0 +1,29 @@
+[
+  {"pk": 1, "model": "MedicalHistory.appointment", "fields": {"appointment_time": "12:00:00",
+      "description": "DK's arm broke...", "appointment_date": "2015-04-29", "doctor": 1, "user": 1, "date_created": "2015-04-27T20:15:01", "name": "Broken Arm"}},
+
+  {"pk": 2, "model": "MedicalHistory.appointment", "fields": {"appointment_time": "06:00:00",
+    "description": "DK needs his teeth fixed", "appointment_date": "2015-05-12", "doctor": 2, "user": 1, "date_created": "2015-04-27T20:15:53", "name": "Broken Teeth"}},
+
+  {"pk": 3, "model": "MedicalHistory.appointment", "fields": {"appointment_time": "12:00:00",
+    "description": "Shell is broken", "appointment_date": "2015-04-29", "doctor": 1, "user": 2, "date_created": "2015-04-27T20:16:28", "name": "Shell Repair"}},
+
+  {"pk": 4, "model": "MedicalHistory.appointment", "fields": {"appointment_time": "20:17:34",
+    "description": "The king needs his fangs sharp", "appointment_date": "2015-05-11", "doctor": 2, "user": 2, "date_created": "2015-04-27T20:17:17", "name": "Fang Polish"}},
+
+  {"pk": 5, "model": "MedicalHistory.appointment", "fields": {"appointment_time": "12:00:00",
+    "description": "Yoshi's tongue is too short", "appointment_date": "2015-04-15", "doctor": 1, "user": 3, "date_created": "2015-04-27T20:18:02", "name": "Tongue Surgery"}},
+
+  {"pk": 6, "model": "MedicalHistory.appointment", "fields": {"appointment_time": "12:00:00",
+    "description": "Yoshi's eggs are weird", "appointment_date": "2015-05-21", "doctor": 2, "user": 3, "date_created": "2015-04-27T20:18:34", "name": "Weird Eggs"}},
+
+  {"pk": 7, "model": "MedicalHistory.appointment", "fields": {"appointment_time": "12:00:00",
+    "description": "Goomba wants to become taller", "appointment_date": "2015-04-17", "doctor": 1, "user": 4, "date_created": "2015-04-27T20:19:10", "name": "Too Short"}},
+
+  {"pk": 8, "model": "MedicalHistory.appointment", "fields": {"appointment_time": "12:00:00",
+    "description": "Goomba doesn't like his looks", "appointment_date": "2015-05-05", "doctor": 2, "user": 4, "date_created": "2015-04-27T20:20:09", "name": "Plastic Surgery"}},
+
+  {"pk": 9, "model": "MedicalHistory.appointment", "fields": {"appointment_time": "12:00:00",
+    "description": "The king's tail needs checkup", "appointment_date": "2015-05-05", "doctor": 1, "user": 2, "date_created": "2015-04-27T20:20:51", "name": "Tail Inspection"}}
+
+]

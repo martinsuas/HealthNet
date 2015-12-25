@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Profile{% endblock %}
+
+{% block side_block %}
+
+{% endblock %}
+
+{% block body_block %}
+    <div class="container-fluid">
+        {% if user.is_authenticated %}
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="page-header" style="">
+                        <h1>Welcome to HealthNet, {{ user.profile.get_name }}</h1>
+                    </div>
+                    <div class="profile-tabs">
+                        <ul class="nav nav-tabs" style="">
+                            <li role="presentation"><a
+                                    href="{% url "user:profile" username=user.username %}">User Details</a></li>
+                            <li role="presentation"><a href="{% url 'user:med_his:appointments' %}">Appointments</a>
+                            <li role="presentation"><a
+                                    href="{% url 'user:med_his:prescriptions' username=user.username %}">Prescriptions</a>
+                            </li>
+                            <li role="presentation" class="active"><a
+                                    href="{% url 'user:med_his:conditions' username=user.username %}">Conditions</a>
+                            </li>
+                            <li role="presentation" class="dropdown"><a
+                                    href="{% url "user:patient_search" username=user.username %}">Patients</a></li>
+                            <li role="presentation"><a
+                                    href="{% url 'user:med_his:tests' username=user.username %}">Tests</a></li>
+                            <li role="presentation" class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    Choose Hospital <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    {% for item in hospital_list %}
+                                        <li><a href="{% url 'hospital:detail' username=user.username pk=item.id %}">
+                                            {{ item.name }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><strong>Conditions:</strong></h3>
+                        </div>
+                        <ul class="list-group" id="accordion" role="tablist" aria-multiselectable="true">
+                            {% for item in conditions %}
+                                <div class="list-group-item">
+                                    <div class="list-group-item-heading" role="tab" id="heading{{ item.pk }}">
+                                        <div class="row">
+                                            <a data-toggle="collapse" data-parent="#accordion"
+                                               href="#collapse{{ item.pk }}" aria-expanded="true"
+                                               aria-controls="collapse{{ item.pk }}">
+                                                <span class="col-sm-3 text-right"
+                                                      style="color: #000000">{{ item.user.profile.get_name }}</span>
+                                                    <span class="col-sm-4 text-left">
+                                                    <strong style="color: #000000">{{ item.name }}:</strong>
+                                                    </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div id="collapse{{ item.pk }}" class="panel-collapse collapse out"
+                                         role="tabpanel" aria-labelledby="heading{{ item.pk }}">
+                                        <div class="panel-body">
+                                            <div class="container col-sm-offset-1">
+                                                {% if item.date_recovered == None %}
+                                                    <p>Date: {{ item.date_diagnosed }} - </p>
+                                                {% else %}
+                                                    <p>Date: {{ item.date_diagnosed }}
+                                                        - {{ item.date_recovered }}</p>
+                                                {% endif %}
+                                            </div>
+                                            <div class="col-md-1 col-md-offset-8 col-xs-offset-4">
+                                                <a type="button" class="btn btn-default"
+                                                   href="{% url "user:med_his:conditions_edit"  username=user.username pk=item.pk %}">
+                                                        <span class="glyphicon glyphicon-cog"
+                                                              aria-hidden="true"> Edit</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </ul>
+                        <div class="col-md-1 col-md-offset-10 col-xs-offset-4">
+                            <a type="button" class="btn btn-default"
+                               href="{% url "user:med_his:conditions_new"  username=user.username %}"><span
+                                    class="glyphicon glyphicon-plus" aria-hidden="true">Add</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+        {% endif %}
+{% endblock %}
+</html>

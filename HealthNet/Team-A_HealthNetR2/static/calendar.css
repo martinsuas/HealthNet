@@ -1,0 +1,20 @@
+tr {
+    width: 150px
+}
+
+td {
+    border: 2px solid black;
+    width: 200px;
+    height: 100px
+
+}
+
+.day {
+    text-align: center;
+    font-size: 1.5em;
+    background-color: #9acfea;
+}
+
+.date {
+    text-align: center;
+}

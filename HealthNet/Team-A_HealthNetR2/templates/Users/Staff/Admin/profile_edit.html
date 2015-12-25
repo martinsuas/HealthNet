@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Profile{% endblock %}
+
+{% block side_block %}
+
+{% endblock %}
+
+{% block body_block %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="page-header" style="">
+                    <h1>Welcome to HealthNet, {{ user.profile.get_name }}</h1>
+                </div>
+                <div class="profile-tabs">
+                    <ul class="nav nav-tabs" style="">
+                        <li role="presentation" class="active"><a
+                                href="{% url "user:profile" username=user.username %}">User Details</a></li>
+                        <li role="presentation"><a href="{% url 'user:med_his:appointments' %}">Appointments</a>
+                        <li role="presentation"><a href="{% url 'admin:index' %}">Admin Panel</a>
+                        </li>
+                        <li role="presentation"><a href="{% url 'statistics:logs' %}">Statistics</a>
+                        </li>
+                        <li role="presentation" class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                Choose Hospital <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                {% for item in hospital_list %}
+                                    <li><a href="{% url 'hospital:detail' username=user.username pk=item.id %}">
+                                        {{ item.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <a type="button" autofocus=""
+                               href="{% url "user:profile" username=user.username %}">
+                                <span class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true"></span>
+                            </a>
+                            <strong>{{ user.profile.get_name }}</strong></h3>
+                    </div>
+                    <ul class="list-group">
+                        <form class="form-horizontal" role="form" method="post" action=".">
+                            {% csrf_token %}
+                            <li class="list-group-item" role="tablist">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">First Name:</label>
+
+                                    <div class="col-sm-10">
+                                        <input required="true" type="text" class="form-control"
+                                               id="inputFirstName" name="FirstName"
+                                               value="{{ user.profile.first_name }}">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item" role="tablist">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Middle Name:</label>
+
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inputMiddleName"
+                                               name="MiddleName" value="{{ user.profile.middle_name }}">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item" role="tablist">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Last Name:</label>
+
+                                    <div class="col-sm-10">
+                                        <input required="true" type="text" class="form-control"
+                                               id="inputLastName" name="LastName"
+                                               value="{{ user.profile.last_name }}">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item" role="tablist">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Email:</label>
+
+                                    <div class="col-sm-10">
+                                        <input required="true" type="email" class="form-control" id="inputEmail"
+                                               name="Email" value="{{ user.profile.email }}">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item" role="tablist">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Home Phone:</label>
+
+                                    <div class="col-sm-10">
+                                        <input required="true" type="text" class="form-control"
+                                               id="inputHomePhone" name="HomePhone"
+                                               value="{{ user.profile.home_phone_number }}">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item" role="tablist">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Work Phone:</label>
+
+                                    <div class="col-sm-10">
+                                        <input required="false" type="text" class="form-control"
+                                               id="inputWorkPhone" name="WorkPhone"
+                                               value="{{ user.profile.work_phone_number }}">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item" role="tablist">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Cell Phone:</label>
+
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inputCellPhone"
+                                               name="CellPhone" value="{{ user.profile.cell_phone_number }}">
+                                    </div>
+                                </div>
+                            </li>
+
+                            <div class="col-md-1 col-md-offset-10 col-xs-offset-4">
+                                <button type="submit" class="btn btn-success" autofocus="">
+                                    <span class="glyphicon glyphicon-save" aria-hidden="true"></span> Save
+                                </button>
+                            </div>
+                        </form>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+</html>

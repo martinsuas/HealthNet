@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Profile{% endblock %}
+
+{% block side_block %}
+
+{% endblock %}
+
+{% block body_block %}
+    <div class="container-fluid">
+        {% if user.is_authenticated %}
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="page-header" style="">
+                        <h1>Welcome to HealthNet, {{ user.profile.get_name }}</h1>
+                    </div>
+                    <div class="profile-tabs">
+                        <ul class="nav nav-tabs" style="">
+                            <li role="presentation"><a
+                                    href="{% url "user:profile" username=user.username %}">User Details</a></li>
+                            <li role="presentation"><a href="{% url "user:med_his:insurance" username=user.username %}">Insurance</a>
+                            </li>
+                            <li role="presentation"><a href="{% url 'user:contact' username=user.username %}">Emergency
+                                Contacts</a></li>
+                            <li role="presentation"><a href="{% url 'user:med_his:appointments' %}">Appointments</a>
+                            <li role="presentation"><a
+                                    href="{% url "user:med_his:conditions" username=user.username %}">Conditions</a>
+                            </li>
+                            <li role="presentation"><a href="{% url "user:med_his:tests" username=user.username %}">Test
+                                Results</a></li>
+                            <li role="presentation"><a
+                                    href="{% url "user:med_his:prescriptions" username=user.username %}">Prescriptions</a>
+                            </li>
+                            <li role="presentation" class="active"><a
+                                    href="{% url "user:med_his:export" username=user.username %}">Export</a></li>
+                        </ul>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><strong>{{ user.profile.get_name }} Export Stuff:</strong></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        {% endif %}
+{% endblock %}
+</html>

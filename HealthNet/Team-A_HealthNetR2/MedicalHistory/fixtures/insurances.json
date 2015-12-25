@@ -1,0 +1,10 @@
+[
+  {"pk": 1, "model": "MedicalHistory.insurancepolicy", "fields": {"insurance_id": "9843202483920", "company": "Gorilla Insurance", "user": 1, "policy_number": "874293429832"}},
+
+  {"pk": 2, "model": "MedicalHistory.insurancepolicy", "fields": {"insurance_id": "842039482309", "company": "Ultimate King's Premium Deluxe", "user": 2, "policy_number": "94802384309"}},
+
+  {"pk": 3, "model": "MedicalHistory.insurancepolicy", "fields": {"insurance_id": "984023842", "company": "PETA", "user": 3, "policy_number": "9845230943"}},
+
+  {"pk": 4, "model": "MedicalHistory.insurancepolicy", "fields": {"insurance_id": "04923-4", "company": "Cheap Insurance", "user": 4, "policy_number": "498534"}}
+
+]

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Profile{% endblock %}
+
+{% block side_block %}
+
+{% endblock %}
+
+{% block body_block %}
+    <div class="container-fluid"></div>
+    {% if user.is_authenticated %}
+        <div class="row">
+        <div class="col-md-10">
+            <div class="page-header" style="">
+                <h1>Welcome to the HealthNet Hospital Page, {{ user.profile.get_name }}</h1>
+            </div>
+            <ul class="nav nav-tabs" style="max-width: 700px">
+                <li role="presentation"><a
+                        href="{% url "user:profile" username=user.username %}">User Profile</a></li>
+                <li role="presentation"><a
+                        href="{% url 'hospital:detail' username=user.username pk=curr_hospital.pk %}">Details</a>
+                </li>
+                {#                    <li role="presentation"><a href="{% url 'hospital:stats' username=user.username pk=curr_hospital.pk %}">Statistics</a></li>#}
+
+                <li role="presentation" class="active"><a
+                        href="{% url 'hospital:admit' username=user.username pk=curr_hospital.pk %}">Admit</a>
+                </li>
+                <li role="presentation"><a
+                        href="{% url 'hospital:discharge' username=user.username pk=curr_hospital.pk %}">Discharge</a>
+                </li>
+                <li role="presentation"><a
+                        href="{% url 'hospital:transfer' username=user.username pk=curr_hospital.pk %}">Transfer</a>
+                </li>
+                <li role="presentation" class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        Change Hospital <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        {% for item in hospital_list %}
+                            <li><a href="{% url 'hospital:detail' username=user.username pk=item.id %}">
+                                {{ item.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            </ul>
+            <div class="well">
+                {% if warning %}
+                    <div class="alert alert-warning alert-dismissible" role="alert" style="max-width: 450px">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                        {{ warning }}.
+                    </div>
+                {% endif %}
+                {% if added %}
+                    <div class="alert alert-success alert-dismissible" role="alert" style="max-width: 450px">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                        {{ patient.get_name }} has successfully been added to {{ curr_hospital.name }}.
+                    </div>
+                {% endif %}
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <form role="form-group" method="post" action="." style="max-width: 600px; padding: 15px">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+
+                            <button class="btn btn-success" type="submit" style="margin-left: 500px">Admit</button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% else %}
+        <script language="javascript">
+            window.location.href = "/"
+        </script>
+    {% endif %}
+
+{% endblock %}
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head><style>
+    tr {width:150px}
+    td {
+        border: 2px solid black;
+        width:200px;
+        height: 80px
+
+    }
+
+    .day {
+        text-align: center;
+        font-size: 1.5em;
+        background-color: #add8e6;
+    }
+
+    .date {
+        text-align: center;
+    }
+
+</style></head>
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Profile{% endblock %}
+
+{% block side_block %}
+
+{% endblock %}
+
+{% block body_block %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="page-header" style="">
+                    <h1>Welcome to HealthNet, {{ user.profile.get_name }}</h1>
+                </div>
+                <div class="profile-tabs">
+                    <ul class="nav nav-tabs" style="">
+                        {% if user.profile.role == "Doctor" %}
+                            <li role="presentation"><a
+                                    href="{% url "user:profile" username=user.username %}">User Details</a></li>
+                            <li role="presentation" class="active"><a href="{% url 'user:med_his:appointments' %}">Appointments</a>
+                            <li role="presentation"><a
+                                    href="{% url 'user:med_his:prescriptions' username=user.username %}">Prescriptions</a>
+                            </li>
+                            <li role="presentation"><a
+                                    href="{% url 'user:med_his:conditions' username=user.username %}">Conditions</a>
+                            </li>
+                            <li role="presentation" class="dropdown"><a
+                                    href="{% url "user:patient_search" username=user.username %}">Patients</a>
+                            </li>
+                            <li role="presentation"><a href="{% url 'user:med_his:tests' username=user.username %}">Tests</a>
+                            </li>
+                            <li role="presentation" class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-expanded="false">
+                                    Choose Hospital <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    {% for item in hospital_list %}
+                                        <li><a href="{% url 'hospital:detail' username=user.username pk=item.id %}">
+                                            {{ item.name }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                        {% elif user.profile.role == 'Patient' %}
+                            <li role="presentation"><a
+                                    href="{% url "user:profile" username=user.username %}">User Details</a></li>
+                            <li role="presentation"><a
+                                    href="{% url "user:med_his:insurance" username=user.username %}">Insurance</a>
+                            </li>
+                            <li role="presentation"><a href="{% url 'user:contact' username=user.username %}">Emergency
+                                Contacts</a></li>
+                            <li role="presentation" class="active"><a href="{% url 'user:med_his:appointments' %}">Appointments</a>
+
+                            <li role="presentation"><a
+                                    href="{% url "user:med_his:conditions" username=user.username %}">Conditions</a>
+                            </li>
+                            <li role="presentation"><a href="{% url "user:med_his:tests" username=user.username %}">Test
+                                Results</a></li>
+                            <li role="presentation"><a
+                                    href="{% url "user:med_his:prescriptions" username=user.username %}">Prescriptions</a>
+                            </li>
+                            <li role="presentation"><a
+                                    href="{% url "user:med_his:export" username=user.username %}">Export</a>
+                            </li>
+                        {% elif user.profile.role == 'Secretary' %}
+                            <div class="profile-tabs">
+                                <ul class="nav nav-tabs" style="">
+                                    <li role="presentation"><a
+                                            href="{% url "user:profile" username=user.username %}">User Details</a></li>
+                                    <li role="presentation" class="active"><a
+                                            href="{% url 'user:med_his:appointments' %}">Appointments</a></li>
+                                    <li role="presentation"><a
+                                            href="{% url "user:patient_search" username=user.username %}">Patients</a>
+                                    </li>
+                                    <li role="presentation" class="dropdown">
+
+                                        <a class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                           aria-expanded="false">
+                                            Choose Hospital <span class="caret"></span></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            {% for item in hospital_list %}
+                                                <li>
+                                                    <a href="{% url 'hospital:detail' username=user.username pk=item.id %}">
+                                                        {{ item.name }}</a></li>
+                                            {% endfor %}
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        {% elif user.profile.role == 'Nurse' %}
+                            <div class="profile-tabs">
+                                <ul class="nav nav-tabs" style="">
+                                    <li role="presentation"><a
+                                            href="{% url "user:profile" username=user.username %}">User Details</a></li>
+                                    <li role="presentation" class="active"><a
+                                            href="{% url 'user:med_his:appointments' %}">Appointments</a>
+                                    <li role="presentation"><a
+                                            href="{% url 'user:med_his:prescriptions' username=user.username %}">Prescriptions</a>
+                                    </li>
+                                    <li role="presentation"><a
+                                            href="{% url 'user:med_his:conditions' username=user.username %}">Conditions</a>
+                                    </li>
+                                    <li role="presentation" class="dropdown"><a
+                                            href="{% url "user:patient_search" username=user.username %}">Patients</a>
+                                    </li>
+                                    <li role="presentation"><a
+                                            href="{% url 'user:med_his:tests' username=user.username %}">Tests</a>
+                                    </li>
+
+                                    <li role="presentation" class="dropdown">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                           aria-expanded="false">
+                                            Choose Hospital <span class="caret"></span></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            {% for item in hospital_list %}
+                                                <li>
+                                                    <a href="{% url 'hospital:detail' username=user.username pk=item.id %}">
+                                                        {{ item.name }}</a></li>
+                                            {% endfor %}
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        {% elif user.profile.role == 'Admin' %}
+                            <li role="presentation"><a
+                                    href="{% url "user:profile" username=user.username %}">User Details</a></li>
+                            <li role="presentation" class="active"><a href="{% url 'user:med_his:appointments' %}">Appointments</a>
+                            <li role="presentation"><a href="{% url 'admin:index' %}">Admin Panel</a>
+                            </li>
+                            <li role="presentation"><a href="{% url 'statistics:logs' %}">Logs</a>
+                            </li>
+                            <li role="presentation" class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    Choose Hospital <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    {% for item in hospital_list %}
+                                        <li><a href="{% url 'hospital:detail' username=user.username pk=item.id %}">
+                                            {{ item.name }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+                {#        <div class="page-header">#}
+                {#        <h4>Change Year:</h4>#}
+                {#        <a href= "{% url 'user:med_his:month' year|add:'-1' month %}">&lt;&lt; Prev</a>#}
+                {#        <a href= "{% url 'user:med_his:month' year|add:'1' month %}">Next &gt;&gt;</a>#}
+                <div class="row">
+                    <h2 class="col-sm-offset-2">
+                             <span class="col-sm-3 align-right">
+                                <a href="{% url 'user:med_his:month' year month "prev" %}">&lt;&lt; Prev</a>
+                             </span>
+
+                            <span class="col-sm-4">
+                                 <strong>{{ mname }} {{ year }}</strong>
+                            </span>
+
+                            <span class="col-sm-3 align-left">
+                                <a href="{% url 'user:med_his:month' year month "next" %}">Next &gt;&gt;</a>
+                            </span>
+                    </h2>
+                </div>
+
+                <div>
+
+                    <div class="month">
+                        <table id="calendar">
+
+                            <tr>
+                                <td class="day">Mon</td>
+                                <td class="day">Tue</td>
+                                <td class="day">Wed</td>
+                                <td class="day">Thu</td>
+                                <td class="day">Fri</td>
+                                <td class="day">Sat</td>
+                                <td class="day">Sun</td>
+                            </tr>
+
+                            {% for week in month_days %}
+                                <tr>
+                                    {% for day, appointments, current in week %}
+
+                                        <td
+                                                {% if day != 0 and not current %}{% endif %}
+                                                {% if day != 0 and current %}
+                                                    onMouseOver="this.bgColor='5f9ea0';"
+                                                    onMouseOut="this.bgColor='#add8e6';"
+                                                    bgcolor="#add8e6"
+                                                {% endif %}
+                                                {% if day != 0 %}
+                                                    onClick="parent.location='{% url 'user:med_his:day' year month day %}'"
+                                                    onMouseOver="this.bgColor='#eeeeee';"
+                                                    onMouseOut="this.bgColor='white';"
+                                                    style="border: 2px solid black; width:200px; height:100px"
+                                                {% endif %} >
+
+                                            <!-- Day number and entry snippets -->
+                                            {% if day != 0 %}
+                                                {{ day }}
+                                                {% for appointment in appointments %}
+                                                    <br/>
+                                                    <b>{{ appointment.appointment_time }}</b>: {{ appointment }}
+                                                {% endfor %}
+                                            {% endif %}
+                                        </td>
+                                    {% endfor %}
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="row">
+                    <a href="{% url "user:med_his:appointment_new" %}">
+                        <span class="col-sm-offset-10 align-right">New Appointment</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+
+{% endblock %}
+</html>

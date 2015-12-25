@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Profile{% endblock %}
+
+{% block body_block %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="page-header" style="">
+                    <h1>Welcome to HealthNet, {{ user.profile.get_name }}</h1>
+                </div>
+                <div class="profile-tabs">
+                    <ul class="nav nav-tabs" style="">
+                        <li role="presentation"><a
+                                href="{% url "user:profile" username=user.username %}">User Details</a></li>
+                        <li role="presentation"><a href="{% url 'user:med_his:appointments' %}">Appointments</a>
+                        <li role="presentation"><a
+                                href="{% url 'user:med_his:prescriptions' username=user.username %}">Prescriptions</a>
+                        </li>
+                        <li role="presentation" class="active"><a
+                                href="{% url 'user:med_his:conditions' username=user.username %}">Conditions</a></li>
+                        <li role="presentation" class="dropdown"><a
+                                href="{% url "user:patient_search" username=user.username %}">Patients</a></li>
+                        <li role="presentation"><a
+                                href="{% url 'user:med_his:tests' username=user.username %}">Tests</a></li>
+                        <li role="presentation" class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                Choose Hospital <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                {% for item in hospital_list %}
+                                    <li><a href="{% url 'hospital:detail' username=user.username pk=item.id %}">
+                                        {{ item.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><strong>Edit Condition:</strong></h3>
+                    </div>
+                    <ul class="list-group">
+
+                        <form class="form-horizontal" role="form" method="post" action="."
+                              enctype="multipart/form-data">
+                            {% if warning %}
+                                <div class="alert alert-warning alert-dismissible" role="alert"
+                                     style="max-width: 450px">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                            aria-hidden="true">&times;</span></button>
+                                    {{ warning }}.
+                                </div>
+                            {% endif %}
+                            {% csrf_token %}
+                            <li class="list-group-item" role="tablist">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">User:</label>
+
+                                    <div class="col-sm-6 input-group">
+                                        <input required="true" type="text" class="form-control"
+                                               id="inputUser" name="User" value="{{ condition.user }}">
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="list-group-item" role="tablist">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Name:</label>
+
+                                    <div class="col-sm-6 input-group">
+                                        <input required="true" type="text" class="form-control"
+                                               id="inputName" name="Name" value="{{ condition.name }}">
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="list-group-item" role="tablist">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Currently Afflicted:</label>
+
+                                    <div class="col-sm-6">
+                                        <input required="true" type="checkbox" class="form-control"
+                                               id="inputAfflicted" name="Afflicted"
+                                               value="{{ condition.currently_afflicted }}">
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="list-group-item" role="tablist">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Date Diagnosed:</label>
+
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <input required="true" type="date" class="form-control"
+                                                   id="inputDiagnosed" name="Diagnosed"
+                                                   value="{{ condition.date_diagnosed }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="list-group-item" role="tablist">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Date Recovered:</label>
+
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <input type="date" class="form-control"
+                                                   id="inputRecovered" name="Recovered"
+                                                   value="{{ condition.date_recovered }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <div class="col-md-1 col-md-offset-10 col-xs-offset-4">
+                                <button type="submit" class="btn btn-default" autofocus="">
+                                    <span class="glyphicon glyphicon-save" aria-hidden="true"></span> Save
+                                </button>
+                            </div>
+                        </form>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+</html>

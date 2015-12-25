@@ -1,0 +1,1 @@
+from MedicalHistory.tests import *

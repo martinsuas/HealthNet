@@ -1,0 +1,16 @@
+[
+  {"pk": 1, "model": "MedicalHistory.condition", "fields": {"date_diagnosed": "2015-04-27",
+    "date_recovered": null, "user": 1, "currently_afflicted": true, "name": "Monkey Rage"}},
+
+  {"pk": 2, "model": "MedicalHistory.condition", "fields": {"date_diagnosed": "2015-04-15",
+    "date_recovered": null, "user": 2, "currently_afflicted": true, "name": "Anger Issue"}},
+
+  {"pk": 3, "model": "MedicalHistory.condition", "fields": {"date_diagnosed": "2015-04-08",
+    "date_recovered": "2015-04-21", "user": 1, "currently_afflicted": false, "name": "Banana Addiction"}},
+
+  {"pk": 4, "model": "MedicalHistory.condition", "fields": {"date_diagnosed": "2015-04-27",
+    "date_recovered": null, "user": 2, "currently_afflicted": true, "name": "Daddy Issues"}},
+
+  {"pk": 5, "model": "MedicalHistory.condition", "fields": {"date_diagnosed": "2015-04-25",
+    "date_recovered": null, "user": 3, "currently_afflicted": true, "name": "Low Self-Esteem"}}
+]

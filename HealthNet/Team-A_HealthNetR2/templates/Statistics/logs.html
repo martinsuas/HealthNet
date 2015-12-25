@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Profile{% endblock %}
+
+{% block side_block %}
+
+{% endblock %}
+
+{% block body_block %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="page-header" style="">
+                    <h1>Welcome to HealthNet, {{ user.profile.get_name }}</h1>
+                </div>
+                <div class="profile-tabs">
+                    <ul class="nav nav-tabs" style="">
+                        <li role="presentation"><a
+                                href="{% url "user:profile" username=user.username %}">User Details</a></li>
+                        <li role="presentation"><a href="{% url 'user:med_his:appointments' %}">Appointments</a>
+                        <li role="presentation"><a href="{% url 'admin:index' %}">Admin Panel</a>
+                        </li>
+                        <li role="presentation" class="active"><a href="{% url 'statistics:logs' %}">Logs</a>
+                        </li>
+                        <li role="presentation" class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                Choose Hospital <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                {% for item in hospital_list %}
+                                    <li><a href="{% url 'hospital:detail' username=user.username pk=item.id %}">
+                                        {{ item.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><strong>View logs:</strong></h3>
+                    </div>
+                    <ul class="list-group">
+                        <form class="form-horizontal">
+                            <li class="list-group-item" role="tablist" style="max-height: 50px">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Username:</label>
+
+                                    <div class="col-sm-3">
+                                        <input required="true" type="date" class="form-control" id="input-Date"
+                                               name="Date" value="{{ begin_date }}">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item" role="tablist" style="max-height: 50px">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Username:</label>
+
+                                    <div class="col-sm-3">
+                                        <input required="true" type="date" class="form-control" id="input-Date"
+                                               name="Date" value="{{ end_date }}">
+                                    </div>
+                                </div>
+                            </li>
+                        </form>
+                    </ul>
+                    <div class="col-md-1 col-md-offset-10 col-xs-offset-4 ">
+                        <a type="button" class="btn btn-default" href="{% url "statistics:results" %}">Check Logs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+</html>

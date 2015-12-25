@@ -1,0 +1,5 @@
+[
+  {"pk": 1, "model": "Users.adminprofile", "fields": {"profile": 1}},
+
+  {"pk": 2, "model": "Users.adminprofile", "fields": {"profile": 2}}
+]

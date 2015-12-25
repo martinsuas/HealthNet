@@ -1,0 +1,20 @@
+[
+
+  {"pk": 1, "model": "MedicalHistory.prescription", "fields": {"refills": 1, "direction": "Drink every night and day",
+    "date_prescribed": "2015-04-27", "doctor": 1, "drug_name": "Banana Pill", "user": 1, "dosage": "2"}},
+
+  {"pk": 2, "model": "MedicalHistory.prescription", "fields": {"refills": 3, "direction": "Drink every night and day",
+    "date_prescribed": "2015-04-17", "doctor": 2, "drug_name": "Concentrated Fire", "user": 2, "dosage": "12 mg"}},
+
+  {"pk": 3, "model": "MedicalHistory.prescription", "fields": {"refills": 0, "direction": "Drink every morning",
+    "date_prescribed": "2015-04-18", "doctor": 1, "drug_name": "Eggs Fortifier", "user": 3, "dosage": "1 g"}},
+
+  {"pk": 4, "model": "MedicalHistory.prescription", "fields": {"refills": 1, "direction": "Apply in scar every day",
+    "date_prescribed": "2015-04-25",
+    "doctor": 1,
+    "drug_name": "Ointment",
+    "user": 7,
+    "dosage": "1 mg"
+  }
+  }
+]

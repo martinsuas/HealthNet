@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Profile{% endblock %}
+
+{% block side_block %}
+
+{% endblock %}
+
+{% block body_block %}
+    <div class="container-fluid"></div>
+    {% if user.is_authenticated %}
+        <div class="row">
+        <div class="col-md-10">
+        <div class="page-header" style="">
+            <h1>Welcome to the HealthNet Hospital Page, {{ user.profile.get_name }}</h1>
+        </div>
+        <ul class="nav nav-tabs" style="max-width: 700px">
+            <li role="presentation"><a
+                    href="{% url "user:profile" username=user.username %}">User Profile</a></li>
+            <li role="presentation"><a
+                    href="{% url 'hospital:detail' username=user.username pk=curr_hospital.pk %}">Details</a>
+            </li>
+            {#                    <li role="presentation"><a href="{% url 'hospital:stats' username=user.username pk=curr_hospital.pk %}">Statistics</a></li>#}
+
+            <li role="presentation"><a
+                    href="{% url 'hospital:admit' username=user.username pk=curr_hospital.pk %}">Admit</a>
+            </li>
+            <li role="presentation"><a
+                    href="{% url 'hospital:discharge' username=user.username pk=curr_hospital.pk %}">Discharge</a>
+            </li>
+            <li role="presentation" class="active"><a
+                    href="{% url 'hospital:transfer' username=user.username pk=curr_hospital.pk %}">Transfer</a>
+            </li>
+            <li role="presentation" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                    Change Hospital <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    {% for item in hospital_list %}
+                        <li><a href="{% url 'hospital:detail' username=user.username pk=item.id %}">
+                            {{ item.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </li>
+                </ul>
+        <div class="well">
+
+        {% if warning %}
+            <div class="alert alert-warning alert-dismissible" role="alert" style="max-width: 450px">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                {{ warning }}.
+            </div>
+        {% endif %}
+        {% if removed %}
+            <div class="alert alert-success alert-dismissible" role="alert" style="max-width: 450px">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                {{ patient.get_name }} has successfully been discharged from {{ curr_hospital.name }}.
+            </div>
+        {% endif %}
+
+        <div class="container-fluid">
+            <div class="row">
+                <form role="form" method="post" action="." style="">
+                    {% csrf_token %}
+                    <div class="form-group row">
+                        <label class="col-sm-3 control-label">User to Transfer:</label>
+
+                        <div class="col-sm-6">
+                            <select class="form-control" name="Patient">
+                                {% for item in curr_hospital.patient_list.all %}
+                                    <option value="{{ item }}">{{ item.profile.user.username }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-3 control-label">Hospital to transfer to:</label>
+
+                        <div class="col-sm-6">
+                            <select class="form-control" name="Hospital">
+                                {% for item in recieving %}
+                                    <option value="{{ item.name }}">{{ item.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <button class="col-sm-offset-7 align-right btn btn-primary" type="submit" style="">Transfer</button>
+
+                </form>
+            </div>
+        </div>
+
+    {% else %}
+        <script language="javascript">
+            window.location.href = "/"
+        </script>
+    {% endif %}
+
+{% endblock %}
+</html>

@@ -1,0 +1,242 @@
+[
+  {"pk": 1, "model": "contenttypes.contenttype",
+    "fields": {"model": "logentry", "name": "log entry", "app_label": "admin"}},
+
+  {"pk": 2, "model": "contenttypes.contenttype",
+    "fields": {"model": "permission", "name": "permission", "app_label": "auth"}},
+
+  {"pk": 3, "model": "contenttypes.contenttype", "fields": {"model": "group", "name": "group", "app_label": "auth"}},
+
+  {"pk": 4, "model": "contenttypes.contenttype", "fields": {"model": "user", "name": "user", "app_label": "auth"}},
+
+  {"pk": 5, "model": "contenttypes.contenttype", "fields": {"model": "contenttype", "name": "content type", "app_label": "contenttypes"}},
+
+  {"pk": 6, "model": "contenttypes.contenttype", "fields": {"model": "session", "name": "session", "app_label": "sessions"}},
+
+  {"pk": 7, "model": "contenttypes.contenttype", "fields": {"model": "profile", "name": "profile", "app_label": "Users"}},
+
+  {"pk": 8, "model": "contenttypes.contenttype", "fields": {"model": "patientprofile", "name": "patient profile", "app_label": "Users"}},
+
+  {"pk": 9, "model": "contenttypes.contenttype", "fields": {"model": "doctorprofile", "name": "doctor profile", "app_label": "Users"}},
+
+  {"pk": 10, "model": "contenttypes.contenttype", "fields": {"model": "nurseprofile", "name": "nurse profile", "app_label": "Users"}},
+
+  {"pk": 11, "model": "contenttypes.contenttype", "fields": {"model": "adminprofile", "name": "admin profile", "app_label": "Users"}},
+
+  {"pk": 12, "model": "contenttypes.contenttype", "fields": {"model": "secretaryprofile", "name": "secretary profile", "app_label": "Users"}},
+
+  {"pk": 13, "model": "contenttypes.contenttype", "fields": {"model": "emergencycontact", "name": "emergency contact", "app_label": "Users"}},
+
+  {"pk": 14, "model": "contenttypes.contenttype", "fields": {"model": "appointment", "name": "appointment", "app_label": "MedicalHistory"}},
+
+  {"pk": 15, "model": "contenttypes.contenttype", "fields": {"model": "testresult", "name": "Test Result", "app_label": "MedicalHistory"}},
+
+  {"pk": 16, "model": "contenttypes.contenttype", "fields": {"model": "prescription", "name": "prescription", "app_label": "MedicalHistory"}},
+
+  {"pk": 17, "model": "contenttypes.contenttype", "fields": {"model": "condition", "name": "condition", "app_label": "MedicalHistory"}},
+
+  {"pk": 18, "model": "contenttypes.contenttype", "fields": {"model": "insurancepolicy", "name": "insurance policy", "app_label": "MedicalHistory"}},
+
+  {"pk": 19, "model": "contenttypes.contenttype", "fields": {"model": "medprofile", "name": "med profile", "app_label": "MedicalHistory"}},
+
+  {"pk": 20, "model": "contenttypes.contenttype", "fields": {"model": "hospital", "name": "hospital", "app_label": "Hospital"}},
+
+  {"pk": "yohrft5xxa0q3jgoyy3jaluancron9b7", "model": "sessions.session", "fields": {"expire_date": "2015-05-11T20:39:42.797", "session_data": "OTA2MjMwOTVkYTY4YTVhMDRhNTIxYjk2Y2QwOTViNDNiYTQwMzU4Zjp7fQ=="}},
+
+
+
+
+
+
+
+
+  {"pk": 1, "model": "auth.permission", "fields": {"codename": "add_logentry", "name": "Can add log entry", "content_type": 1}},
+
+  {"pk": 2, "model": "auth.permission", "fields": {"codename": "change_logentry", "name": "Can change log entry", "content_type": 1}},
+
+  {"pk": 3, "model": "auth.permission", "fields": {"codename": "delete_logentry", "name": "Can delete log entry", "content_type": 1}},
+
+  {"pk": 4, "model": "auth.permission", "fields": {"codename": "add_permission", "name": "Can add permission", "content_type": 2}},
+
+  {"pk": 5, "model": "auth.permission", "fields": {"codename": "change_permission", "name": "Can change permission", "content_type": 2}},
+
+  {"pk": 6, "model": "auth.permission", "fields": {"codename": "delete_permission", "name": "Can delete permission", "content_type": 2}},
+
+  {"pk": 7, "model": "auth.permission", "fields": {"codename": "add_group", "name": "Can add group", "content_type": 3}},
+
+  {"pk": 8, "model": "auth.permission", "fields": {"codename": "change_group", "name": "Can change group", "content_type": 3}},
+
+  {"pk": 9, "model": "auth.permission", "fields": {"codename": "delete_group", "name": "Can delete group", "content_type": 3}},
+
+  {"pk": 10, "model": "auth.permission", "fields": {"codename": "add_user", "name": "Can add user", "content_type": 4}},
+
+  {"pk": 11, "model": "auth.permission", "fields": {"codename": "change_user", "name": "Can change user", "content_type": 4}},
+
+  {"pk": 12, "model": "auth.permission", "fields": {"codename": "delete_user", "name": "Can delete user", "content_type": 4}},
+
+  {"pk": 13, "model": "auth.permission", "fields": {"codename": "add_contenttype", "name": "Can add content type", "content_type": 5}},
+
+  {"pk": 14, "model": "auth.permission", "fields": {"codename": "change_contenttype", "name": "Can change content type", "content_type": 5}},
+
+  {"pk": 15, "model": "auth.permission", "fields": {"codename": "delete_contenttype", "name": "Can delete content type", "content_type": 5}},
+
+  {"pk": 16, "model": "auth.permission", "fields": {"codename": "add_session", "name": "Can add session", "content_type": 6}},
+
+  {"pk": 17, "model": "auth.permission", "fields": {"codename": "change_session", "name": "Can change session", "content_type": 6}},
+
+  {"pk": 18, "model": "auth.permission", "fields": {"codename": "delete_session", "name": "Can delete session", "content_type": 6}},
+
+  {"pk": 19, "model": "auth.permission", "fields": {"codename": "add_profile", "name": "Can add profile", "content_type": 7}},
+
+  {"pk": 20, "model": "auth.permission", "fields": {"codename": "change_profile", "name": "Can change profile", "content_type": 7}},
+
+  {"pk": 21, "model": "auth.permission", "fields": {"codename": "delete_profile", "name": "Can delete profile", "content_type": 7}},
+
+  {"pk": 22, "model": "auth.permission", "fields": {"codename": "add_patientprofile", "name": "Can add patient profile", "content_type": 8}},
+
+  {"pk": 23, "model": "auth.permission", "fields": {"codename": "change_patientprofile", "name": "Can change patient profile", "content_type": 8}},
+
+  {"pk": 24, "model": "auth.permission", "fields": {"codename": "delete_patientprofile", "name": "Can delete patient profile", "content_type": 8}},
+
+  {"pk": 25, "model": "auth.permission", "fields": {"codename": "add_doctorprofile", "name": "Can add doctor profile", "content_type": 9}},
+
+  {"pk": 26, "model": "auth.permission", "fields": {"codename": "change_doctorprofile", "name": "Can change doctor profile", "content_type": 9}},
+
+  {"pk": 27, "model": "auth.permission", "fields": {"codename": "delete_doctorprofile", "name": "Can delete doctor profile", "content_type": 9}},
+
+  {"pk": 28, "model": "auth.permission", "fields": {"codename": "add_nurseprofile", "name": "Can add nurse profile", "content_type": 10}},
+
+  {"pk": 29, "model": "auth.permission", "fields": {"codename": "change_nurseprofile", "name": "Can change nurse profile", "content_type": 10}},
+
+  {"pk": 30, "model": "auth.permission", "fields": {"codename": "delete_nurseprofile", "name": "Can delete nurse profile", "content_type": 10}},
+
+  {"pk": 31, "model": "auth.permission", "fields": {"codename": "add_adminprofile", "name": "Can add admin profile", "content_type": 11}},
+
+  {"pk": 32, "model": "auth.permission", "fields": {"codename": "change_adminprofile", "name": "Can change admin profile", "content_type": 11}},
+
+  {"pk": 33, "model": "auth.permission", "fields": {"codename": "delete_adminprofile", "name": "Can delete admin profile", "content_type": 11}},
+
+  {"pk": 34, "model": "auth.permission", "fields": {"codename": "add_secretaryprofile", "name": "Can add secretary profile", "content_type": 12}},
+
+  {"pk": 35, "model": "auth.permission", "fields": {"codename": "change_secretaryprofile", "name": "Can change secretary profile", "content_type": 12}},
+
+  {"pk": 36, "model": "auth.permission", "fields": {"codename": "delete_secretaryprofile", "name": "Can delete secretary profile", "content_type": 12}},
+
+  {"pk": 37, "model": "auth.permission", "fields": {"codename": "add_emergencycontact", "name": "Can add emergency contact", "content_type": 13}},
+
+  {"pk": 38, "model": "auth.permission", "fields": {"codename": "change_emergencycontact", "name": "Can change emergency contact", "content_type": 13}},
+
+  {"pk": 39, "model": "auth.permission", "fields": {"codename": "delete_emergencycontact", "name": "Can delete emergency contact", "content_type": 13}},
+
+  {"pk": 40, "model": "auth.permission", "fields": {"codename": "can_view", "name": "Allows users to view emergency contacts", "content_type": 13}},
+
+  {"pk": 41, "model": "auth.permission", "fields": {"codename": "can_edit", "name": "Allows users to edit emergency contacts", "content_type": 13}},
+
+  {"pk": 42, "model": "auth.permission", "fields": {"codename": "add_appointment", "name": "Can add appointment", "content_type": 14}},
+
+  {"pk": 43, "model": "auth.permission", "fields": {"codename": "change_appointment", "name": "Can change appointment", "content_type": 14}},
+
+  {"pk": 44, "model": "auth.permission", "fields": {"codename": "delete_appointment", "name": "Can delete appointment", "content_type": 14}},
+
+  {"pk": 45, "model": "auth.permission", "fields": {"codename": "add_testresult", "name": "Can add Test Result", "content_type": 15}},
+
+  {"pk": 46, "model": "auth.permission", "fields": {"codename": "change_testresult", "name": "Can change Test Result", "content_type": 15}},
+
+  {"pk": 47, "model": "auth.permission", "fields": {"codename": "delete_testresult", "name": "Can delete Test Result", "content_type": 15}},
+
+  {"pk": 48, "model": "auth.permission", "fields": {"codename": "can_view", "name": "Determines if a Users can view the test results", "content_type": 15}},
+
+  {"pk": 49, "model": "auth.permission", "fields": {"codename": "can_edit", "name": "Determines if a Users can edit the test results", "content_type": 15}},
+
+  {"pk": 50, "model": "auth.permission", "fields": {"codename": "can_release", "name": "Determines if a Users can release a test", "content_type": 15}},
+
+  {"pk": 51, "model": "auth.permission", "fields": {"codename": "can_create", "name": "Determines if a Users can create a test result", "content_type": 15}},
+
+  {"pk": 52, "model": "auth.permission", "fields": {"codename": "add_prescription", "name": "Can add prescription", "content_type": 16}},
+
+  {"pk": 53, "model": "auth.permission", "fields": {"codename": "change_prescription", "name": "Can change prescription", "content_type": 16}},
+
+  {"pk": 54, "model": "auth.permission", "fields": {"codename": "delete_prescription", "name": "Can delete prescription", "content_type": 16}},
+
+  {"pk": 55, "model": "auth.permission", "fields": {"codename": "can_view", "name": "Determines if a Users can view the prescription", "content_type": 16}},
+
+  {"pk": 56, "model": "auth.permission", "fields": {"codename": "can_edit", "name": "Determines if a Users can edit the prescription", "content_type": 16}},
+
+  {"pk": 57, "model": "auth.permission", "fields": {"codename": "can_release", "name": "Determines if a Users can release a prescription", "content_type": 16}},
+
+  {"pk": 58, "model": "auth.permission", "fields": {"codename": "can_create", "name": "Determines if a Users can create a prescription", "content_type": 16}},
+
+  {"pk": 59, "model": "auth.permission", "fields": {"codename": "add_condition", "name": "Can add condition", "content_type": 17}},
+
+  {"pk": 60, "model": "auth.permission", "fields": {"codename": "change_condition", "name": "Can change condition", "content_type": 17}},
+
+  {"pk": 61, "model": "auth.permission", "fields": {"codename": "delete_condition", "name": "Can delete condition", "content_type": 17}},
+
+  {"pk": 62, "model": "auth.permission", "fields": {"codename": "can_view", "name": "Determines if a Users can view the condition", "content_type": 17}},
+
+  {"pk": 63, "model": "auth.permission", "fields": {"codename": "can_edit", "name": "Determines if a Users can edit the condition", "content_type": 17}},
+
+  {"pk": 64, "model": "auth.permission", "fields": {"codename": "can_release", "name": "Determines if a Users can release a condition", "content_type": 17}},
+
+  {"pk": 65, "model": "auth.permission", "fields": {"codename": "can_create", "name": "Determines if a Users can create a condition", "content_type": 17}},
+
+  {"pk": 66, "model": "auth.permission", "fields": {"codename": "add_insurancepolicy", "name": "Can add insurance policy", "content_type": 18}},
+
+  {"pk": 67, "model": "auth.permission", "fields": {"codename": "change_insurancepolicy", "name": "Can change insurance policy", "content_type": 18}},
+
+  {"pk": 68, "model": "auth.permission", "fields": {"codename": "delete_insurancepolicy", "name": "Can delete insurance policy", "content_type": 18}},
+
+  {"pk": 69, "model": "auth.permission", "fields": {"codename": "can_view", "name": "Determines if a Users can view the Insurance Policy", "content_type": 18}},
+
+  {"pk": 70, "model": "auth.permission", "fields": {"codename": "can_edit", "name": "Determines if a Users can edit the Insurance Policy", "content_type": 18}},
+
+  {"pk": 71, "model": "auth.permission", "fields": {"codename": "add_medprofile", "name": "Can add med profile", "content_type": 19}},
+
+  {"pk": 72, "model": "auth.permission", "fields": {"codename": "change_medprofile", "name": "Can change med profile", "content_type": 19}},
+
+  {"pk": 73, "model": "auth.permission", "fields": {"codename": "delete_medprofile", "name": "Can delete med profile", "content_type": 19}},
+
+  {"pk": 74, "model": "auth.permission", "fields": {"codename": "can_view", "name": "Determines if a Users can view the MedProfile", "content_type": 19}},
+
+  {"pk": 75, "model": "auth.permission", "fields": {"codename": "can_edit", "name": "Determines if a Users can edit the MedProfile", "content_type": 19}},
+
+  {"pk": 76, "model": "auth.permission", "fields": {"codename": "add_hospital", "name": "Can add hospital", "content_type": 20}},
+
+  {"pk": 77, "model": "auth.permission", "fields": {"codename": "change_hospital", "name": "Can change hospital", "content_type": 20}},
+
+  {"pk": 78, "model": "auth.permission", "fields": {"codename": "delete_hospital", "name": "Can delete hospital", "content_type": 20}},
+
+
+  {"pk": 1, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:04:15.399", "object_repr": "Rosalina", "object_id": "2", "change_message": "", "user": 1, "content_type": 4}},
+
+  {"pk": 2, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:04:39.982", "object_repr": "Rosalina", "object_id": "1", "change_message": "", "user": 1, "content_type": 7}},
+
+  {"pk": 3, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:04:44.312", "object_repr": "Rosalina", "object_id": "1", "change_message": "", "user": 1, "content_type": 11}},
+
+  {"pk": 4, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:05:00.606", "object_repr": "Wario", "object_id": "3", "change_message": "", "user": 1, "content_type": 4}},
+
+  {"pk": 5, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:05:20.659", "object_repr": "Wario", "object_id": "2", "change_message": "", "user": 1, "content_type": 7}},
+
+  {"pk": 6, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:05:22.874", "object_repr": "Wario", "object_id": "2", "change_message": "", "user": 1, "content_type": 11}},
+
+  {"pk": 7, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:05:46.040", "object_repr": "Toad", "object_id": "4", "change_message": "", "user": 1, "content_type": 4}},
+
+  {"pk": 8, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:06:18.256", "object_repr": "Toad", "object_id": "3", "change_message": "", "user": 1, "content_type": 7}},
+
+  {"pk": 9, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:06:20.126", "object_repr": "Toad", "object_id": "1", "change_message": "", "user": 1, "content_type": 12}},
+
+  {"pk": 10, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:06:34.455", "object_repr": "Toadette", "object_id": "5", "change_message": "", "user": 1, "content_type": 4}},
+
+  {"pk": 11, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:06:47.874", "object_repr": "Toadette", "object_id": "4", "change_message": "", "user": 1, "content_type": 7}}, {"pk": 12, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:06:50.361", "object_repr": "Toadette", "object_id": "2", "change_message": "", "user": 1, "content_type": 12}}, {"pk": 13, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:07:19.212", "object_repr": "DK", "object_id": "6", "change_message": "", "user": 1, "content_type": 4}}, {"pk": 14, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:07:31.645", "object_repr": "DK", "object_id": "5", "change_message": "", "user": 1, "content_type": 7}}, {"pk": 15, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:07:50.991", "object_repr": "DK", "object_id": "1", "change_message": "", "user": 1, "content_type": 8}}, {"pk": 16, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:08:06.238", "object_repr": "Bowser", "object_id": "7", "change_message": "", "user": 1, "content_type": 4}}, {"pk": 17, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:08:33.153", "object_repr": "Bowser", "object_id": "6", "change_message": "", "user": 1, "content_type": 7}}, {"pk": 18, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:08:44.937", "object_repr": "Bowser", "object_id": "2", "change_message": "", "user": 1, "content_type": 8}}, {"pk": 19, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:09:06.081", "object_repr": "Yoshi", "object_id": "8", "change_message": "", "user": 1, "content_type": 4}}, {"pk": 20, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:09:24.239", "object_repr": "Yoshi", "object_id": "7", "change_message": "", "user": 1, "content_type": 7}}, {"pk": 21, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:09:48.811", "object_repr": "Yoshi", "object_id": "3", "change_message": "", "user": 1, "content_type": 8}}, {"pk": 22, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:10:38.629", "object_repr": "Goomba", "object_id": "9", "change_message": "", "user": 1, "content_type": 4}}, {"pk": 23, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:10:52.736", "object_repr": "Goomba", "object_id": "8", "change_message": "", "user": 1, "content_type": 7}}, {"pk": 24, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:11:10.941", "object_repr": "Goomba", "object_id": "4", "change_message": "", "user": 1, "content_type": 8}}, {"pk": 25, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:11:40.337", "object_repr": "Mario", "object_id": "10", "change_message": "", "user": 1, "content_type": 4}}, {"pk": 26, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:11:50.756", "object_repr": "Mario", "object_id": "9", "change_message": "", "user": 1, "content_type": 7}}, {"pk": 27, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:12:03.385", "object_repr": "Mario", "object_id": "1", "change_message": "", "user": 1, "content_type": 9}}, {"pk": 28, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:12:17.075", "object_repr": "Luigi", "object_id": "11", "change_message": "", "user": 1, "content_type": 4}}, {"pk": 29, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:12:31.674", "object_repr": "Luigi", "object_id": "10", "change_message": "", "user": 1, "content_type": 7}}, {"pk": 30, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:12:37.368", "object_repr": "Luigi", "object_id": "2", "change_message": "", "user": 1, "content_type": 9}}, {"pk": 31, "model": "admin.logentry", "fields": {"action_flag": 2, "action_time": "2015-04-27T20:12:52.183", "object_repr": "Luigi", "object_id": "2", "change_message": "Changed patient_list.", "user": 1, "content_type": 9}}, {"pk": 32, "model": "admin.logentry", "fields": {"action_flag": 2, "action_time": "2015-04-27T20:12:56.960", "object_repr": "Mario", "object_id": "1", "change_message": "Changed patient_list.", "user": 1, "content_type": 9}}, {"pk": 33, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:13:26.942", "object_repr": "Peach", "object_id": "12", "change_message": "", "user": 1, "content_type": 4}}, {"pk": 34, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:13:39.625", "object_repr": "Peach", "object_id": "11", "change_message": "", "user": 1, "content_type": 7}}, {"pk": 35, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:13:49.405", "object_repr": "Peach", "object_id": "1", "change_message": "", "user": 1, "content_type": 10}}, {"pk": 36, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:14:02.912", "object_repr": "Daisy", "object_id": "13", "change_message": "", "user": 1, "content_type": 4}}, {"pk": 37, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:14:22.796", "object_repr": "Daisy", "object_id": "12", "change_message": "", "user": 1, "content_type": 7}}, {"pk": 38, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:14:29.839", "object_repr": "Daisy", "object_id": "2", "change_message": "", "user": 1, "content_type": 10}}, {"pk": 39, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:15:14.196", "object_repr": "Broken Arm - DK's arm broke...", "object_id": "1", "change_message": "", "user": 1, "content_type": 14}}, {"pk": 40, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:16:04.340", "object_repr": "Broken Teeth - DK needs his teeth fixed", "object_id": "2", "change_message": "", "user": 1, "content_type": 14}}, {"pk": 41, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:16:56.136", "object_repr": "Shell Repair - Shell is broken", "object_id": "3", "change_message": "", "user": 1, "content_type": 14}}, {"pk": 42, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:17:35.815", "object_repr": "Fang Polish - The king needs his fangs sharp", "object_id": "4", "change_message": "", "user": 1, "content_type": 14}}, {"pk": 43, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:18:11.478", "object_repr": "Tongue Surgery - Yoshi's tongue is too short", "object_id": "5", "change_message": "", "user": 1, "content_type": 14}}, {"pk": 44, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:18:44.270", "object_repr": "Weird Eggs - Yoshi's eggs are weird", "object_id": "6", "change_message": "", "user": 1, "content_type": 14}}, {"pk": 45, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:19:21.081", "object_repr": "Too Short - Goomba wants to become taller", "object_id": "7", "change_message": "", "user": 1, "content_type": 14}}, {"pk": 46, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:20:25.954", "object_repr": "Plastic Surgery - Goomba doesn't like his looks", "object_id": "8", "change_message": "", "user": 1, "content_type": 14}}, {"pk": 47, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:21:02.327", "object_repr": "Tail Inspection - The king's tail needs checkup", "object_id": "9", "change_message": "", "user": 1, "content_type": 14}}, {"pk": 48, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:21:24.685", "object_repr": "Monkey Rage", "object_id": "1", "change_message": "", "user": 1, "content_type": 17}}, {"pk": 49, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:21:38.414", "object_repr": "Anger Issue", "object_id": "2", "change_message": "", "user": 1, "content_type": 17}}, {"pk": 50, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:21:53.377", "object_repr": "Banana Addiction", "object_id": "3", "change_message": "", "user": 1, "content_type": 17}}, {"pk": 51, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:22:05.824", "object_repr": "Daddy Issues", "object_id": "4", "change_message": "", "user": 1, "content_type": 17}}, {"pk": 52, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:22:29.406", "object_repr": "Low Self-Esteem", "object_id": "5", "change_message": "", "user": 1, "content_type": 17}}, {"pk": 53, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:23:14.239", "object_repr": "Gorilla Insurance:9843202483920", "object_id": "1", "change_message": "", "user": 1, "content_type": 18}}, {"pk": 54, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:23:36.530", "object_repr": "Ultimate King's Premium Deluxe:842039482309", "object_id": "2", "change_message": "", "user": 1, "content_type": 18}}, {"pk": 55, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:23:47.582", "object_repr": "PETA:984023842", "object_id": "3", "change_message": "", "user": 1, "content_type": 18}},
+
+  {"pk": 56, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:24:19.608", "object_repr": "Cheap Insurance:04923-4", "object_id": "4", "change_message": "", "user": 1, "content_type": 18}},
+
+  {"pk": 57, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:25:00.985", "object_repr": "Banana Pill:4/2015", "object_id": "1", "change_message": "", "user": 1, "content_type": 16}},
+
+  {"pk": 58, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:25:20.584", "object_repr": "Concentrated Fire:4/2015", "object_id": "2", "change_message": "", "user": 1, "content_type": 16}},
+
+  {"pk": 59, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:25:50.917", "object_repr": "Eggs Fortifier:4/2015", "object_id": "3", "change_message": "", "user": 1, "content_type": 16}}, {"pk": 60, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:26:15.615", "object_repr": "Ointment:4/2015", "object_id": "4", "change_message": "", "user": 1, "content_type": 16}},
+
+  {"pk": 61, "model": "admin.logentry", "fields": {"action_flag": 1, "action_time": "2015-04-27T20:39:26.826", "object_repr": "Mushroom Kingdom Hospital", "object_id": "1", "change_message": "", "user": 1, "content_type": 20}}
+
+]

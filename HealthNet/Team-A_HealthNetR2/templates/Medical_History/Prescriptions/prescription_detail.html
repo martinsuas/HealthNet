@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Profile{% endblock %}
+
+{% block body_block %}
+    {% if user.is_authenticated %}
+        <div class="page-header">
+            <h1>{{ prescription.drug_name }}</h1>
+        </div>
+        <p>Date: {{ prescription.date_prescribed }}</p>
+        <p>Dosage: {{ prescription.dosage }}</p>
+        <p>Refills: {{ prescription.refills }}</p>
+        <p>Direction: {{ prescription.direction }}</p>
+        <br>
+        <a href="{% url 'user:med_his:prescription_edit' pk=prescription.pk username=user.username %}">Modify
+            prescription</a></li><br>
+        <a href="{% url 'user:med_his:prescription_remove' pk=prescription.pk username=user.username %}">Remove
+            prescription</a></li><br>
+        <br><a href="{% url 'user:med_his:prescriptions' username=user %}">Back</a></li>
+    {% else %}
+        <script language="javascript">
+            window.location.href = "/"
+        </script>
+    {% endif %}
+{% endblock %}
+</html>

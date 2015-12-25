@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Profile{% endblock %}
+
+{% block body_block %}
+    <div class="container-fluid">
+    {% if user.is_authenticated %}
+        <div class="row">
+            <div class="col-md-10">
+                <div class="page-header" style="">
+                    <h1>Welcome to HealthNet, {{ user.profile.get_name }}</h1>
+                </div>
+                <div class="profile-tabs">
+                    <ul class="nav nav-tabs" style="">
+                        <li role="presentation"><a
+                                href="{% url "user:profile" username=user.username %}">User Details</a></li>
+                        <li role="presentation"><a href="{% url 'user:med_his:appointments' %}">Appointments</a>
+                        <li role="presentation"><a
+                                href="{% url 'user:med_his:prescriptions' username=user.username %}">Prescriptions</a>
+                        </li>
+                        <li role="presentation"><a href="{% url 'user:med_his:conditions' username=user.username %}">Conditions</a>
+                        </li>
+                        <li role="presentation" class="dropdown"><a
+                                href="{% url "user:patient_search" username=user.username %}">Patients</a></li>
+                        <li role="presentation" class="active"><a
+                                href="{% url 'user:med_his:tests' username=user.username %}">Tests</a></li>
+                        <li role="presentation" class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                Choose Hospital <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                {% for item in hospital_list %}
+                                    <li><a href="{% url 'hospital:detail' username=user.username pk=item.id %}">
+                                        {{ item.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><strong>Test Results:</strong></h3>
+                    </div>
+                    <ul class="list-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        {% for item in test_results %}
+                            <div class="list-group-item">
+                                <div class="list-group-item-heading" role="tab" id="heading{{ item.pk }}">
+                                    <h4 class="panel-title panel-heading">
+                                        <a data-toggle="collapse" data-parent="#accordion"
+                                           href="#collapse{{ item.pk }}" aria-expanded="true"
+                                           aria-controls="collapse{{ item.pk }}">
+                                            <span class="col-sm-3">{{ item.test_name }}</span>
+                                            <span class="col-sm-3 text-left">{{ item.user }}</span>
+                                            <span class="col-sm-3"></span>
+                                        </a>
+                                        <a>
+                                            <button class="align-right button btn-default badge"
+                                                    style="border: 0; background-color: #ffffff; color: #ffffff">
+                                                <span class="glyphicon glyphicon-remove align-right"></span>
+                                            </button>
+                                        </a>
+                                    </h4>
+
+                                    <div id="collapse{{ item.pk }}" class="panel-collapse collapse out"
+                                         role="tabpanel" aria-labelledby="heading{{ item.pk }}">
+                                        <div class="panel-body">
+                                            <div class="media col-sm-offset-1">
+                                                <div class="media-left">
+                                                    <a href="{{ item.report.url }}" download>
+                                                        <h2 class="glyphicon glyphicon-cloud-download"></h2>
+                                                    </a>
+                                                </div>
+                                                <div class="media-body">
+                                                    <span class="row">Patient: {{ item.user }}</span>
+                                                    <span class="row">Date: {{ item.pub_date }}</span>
+                                                <span class="row">Released:
+                                                    {% if item.released %}
+                                                        <a class="col-sm-offset-1 align-right" style="color: #000000">
+                                                            <span class="glyphicon glyphicon-eye-open"></span>
+                                                        </a>
+                                                    {% else %}
+                                                        <a class="col-sm-offset-1 align-right" style="color: #000000">
+                                                            <span class="glyphicon glyphicon-eye-close"></span>
+                                                        </a>
+                                                    {% endif %}
+                                                </span>
+                                                    <span class="row">Notes: {{ item.notes }}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <script language="javascript">
+            window.location.href = "/"
+        </script>
+    {% endif %}
+{% endblock %}
+</html>

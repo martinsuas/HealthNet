@@ -1,0 +1,41 @@
+[
+
+  {"pk": 1, "model": "Users.profile", "fields": {"first_name": "Rosalina", "last_name": "Bros", "middle_name": "", "home_phone_number": "", "cell_phone_number": "",
+    "work_phone_number": "4343534", "role": "Admin", "user": 2, "email": "rosalina@mb.com"}},
+
+  {"pk": 2, "model": "Users.profile", "fields": {"first_name": "Wario", "last_name": "Walder", "middle_name": "", "home_phone_number": "", "cell_phone_number": "",
+    "work_phone_number": "54354343", "role": "Admin", "user": 3, "email": "wario@mb.com"}},
+
+  {"pk": 3, "model": "Users.profile", "fields": {"first_name": "Toad", "last_name": "Mushroom", "middle_name": "", "home_phone_number": "", "cell_phone_number": "",
+    "work_phone_number": "43543343", "role": "Secretary", "user": 4, "email": "toad@ms.com"}},
+
+  {"pk": 4, "model": "Users.profile", "fields": {"first_name": "Toadette", "last_name": "Mushroom", "middle_name": "", "home_phone_number": "", "cell_phone_number": "",
+    "work_phone_number": "45223432", "role": "Secretary", "user": 5, "email": "toadette@mb.com"}},
+
+  {"pk": 5, "model": "Users.profile", "fields": {"first_name": "Donkey", "last_name": "Kong", "middle_name": "", "home_phone_number": "", "cell_phone_number": "",
+    "work_phone_number": "32424323", "role": "Patient", "user": 6, "email": "dk@mb.com"}},
+
+  {"pk": 6, "model": "Users.profile", "fields": {"first_name": "Bowser", "last_name": "Koopa King", "middle_name": "", "home_phone_number": "", "cell_phone_number": "",
+    "work_phone_number": "433243242323", "role": "Patient", "user": 7, "email": "bowser.koopaking@gmail.com"}},
+
+  {"pk": 7, "model": "Users.profile", "fields": {"first_name": "Yoshi", "last_name": "Eggy", "middle_name": "", "home_phone_number": "", "cell_phone_number": "",
+    "work_phone_number": "59454532", "role": "Patient", "user": 8, "email": "yoshi@mb.com"}},
+
+  {"pk": 8, "model": "Users.profile", "fields": {"first_name": "Goomba", "last_name": "Goorio", "middle_name": "", "home_phone_number": "", "cell_phone_number": "",
+    "work_phone_number": "99548432", "role": "Patient", "user": 9, "email": "goomba@e.com"}},
+
+  {"pk": 9, "model": "Users.profile", "fields": {"first_name": "Mario", "last_name": "Bros", "middle_name": "", "home_phone_number": "", "cell_phone_number": "",
+    "work_phone_number": "45435433", "role": "Doctor", "user": 10, "email": "mario@64.com"}},
+
+  {"pk": 10, "model": "Users.profile", "fields": {"first_name": "Luigi", "last_name": "Bros", "middle_name": "", "home_phone_number": "", "cell_phone_number": "",
+    "work_phone_number": "544354343", "role": "Doctor", "user": 11, "email": "luigi@rs.com"}},
+
+  {"pk": 11, "model": "Users.profile", "fields": {"first_name": "Peach", "last_name": "Toadstool", "middle_name": "", "home_phone_number": "", "cell_phone_number": "",
+    "work_phone_number": "423234235", "role": "Nurse", "user": 12, "email": "peachy@mushroom.kingdom.com"}},
+
+  {"pk": 12, "model": "Users.profile", "fields": {"first_name": "Daisy", "last_name": "Deezer", "middle_name": "", "home_phone_number": "", "cell_phone_number": "",
+    "work_phone_number": "9894354343", "role": "Nurse", "user": 13, "email": "daisy@mb.com"}},
+
+  {"pk": 13, "model": "Users.profile", "fields": {"first_name": "admin", "last_name": "admin", "middle_name": "", "home_phone_number": "", "cell_phone_number": "",
+    "work_phone_number": "9894354343", "role": "Admin", "user": 1, "email": "admin@admin.com"}}
+]

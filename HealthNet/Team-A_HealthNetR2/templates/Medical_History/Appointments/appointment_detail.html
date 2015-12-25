@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Profile{% endblock %}
+
+{% block body_block %}
+    {% if fail %}
+    <p>Either doctor or patient is not available at this time.</p>
+    {% else %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="page-header" style="">
+                    <h1>Welcome to HealthNet, {{ user.profile.get_name }}</h1>
+                </div>
+                <div class="profile-tabs">
+                    <ul class="nav nav-tabs" style="">
+                        {% if user.profile.role == "Doctor" %}
+                            <li role="presentation"><a
+                                    href="{% url "user:profile" username=user.username %}">User Details</a></li>
+                            <li role="presentation" class="active"><a href="{% url 'user:med_his:appointments' %}">Appointments</a>
+                            <li role="presentation"><a
+                                    href="{% url 'user:med_his:prescriptions' username=user.username %}">Prescriptions</a>
+                            </li>
+                            <li role="presentation" class="dropdown"><a
+                                    href="{% url "user:patient_search" username=user.username %}">Patients</a>
+                            </li>
+                            <li role="presentation"><a href="{% url 'user:med_his:tests' username=user.username %}">Tests</a>
+                            </li>
+                            <li role="presentation" class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-expanded="false">
+                                    Choose Hospital <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    {% for item in hospital_list %}
+                                        <li><a href="{% url 'hospital:detail' username=user.username pk=item.id %}">
+                                            {{ item.name }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                        {% elif user.profile.role == 'Patient' %}
+                            <li role="presentation"><a
+                                    href="{% url "user:profile" username=user.username %}">User Details</a></li>
+                            <li role="presentation"><a
+                                    href="{% url "user:med_his:insurance" username=user.username %}">Insurance</a>
+                            </li>
+                            <li role="presentation"><a href="{% url 'user:contact' username=user.username %}">Emergency
+                                Contacts</a></li>
+                            <li role="presentation" class="active"><a href="{% url 'user:med_his:appointments' %}">Appointments</a>
+
+                            <li role="presentation"><a
+                                    href="{% url "user:med_his:conditions" username=user.username %}">Conditions</a>
+                            </li>
+                            <li role="presentation"><a href="{% url "user:med_his:tests" username=user.username %}">Test
+                                Results</a></li>
+                            <li role="presentation"><a
+                                    href="{% url "user:med_his:prescriptions" username=user.username %}">Prescriptions</a>
+                            </li>
+                            <li role="presentation"><a
+                                    href="{% url "user:med_his:export" username=user.username %}">Export</a>
+                            </li>
+                            {% if user.profile.role == "Admin" %}
+                                <li role="presentation"><a
+                                        href="{% url "user:profile" username=user.username %}">User Details</a></li>
+                                <li role="presentation" class="active"><a href="{% url 'user:med_his:appointments' %}">Appointments</a>
+                                <li role="presentation"><a href="{% url 'admin:index' %}">Admin Panel</a>
+                                </li>
+                                <li role="presentation"><a href="{% url 'statistics:logs' %}">Logs</a>
+                                </li>
+                                <li role="presentation" class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                       aria-expanded="false">
+                                        Choose Hospital <span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        {% for item in hospital_list %}
+                                            <li><a href="{% url 'hospital:detail' username=user.username pk=item.id %}">
+                                                {{ item.name }}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                            {% endif %}
+                            </ul>
+                            </div>
+                            <div>
+                                <p>User: {{ appointment.user }}</p>
+
+                                <p>Doctor: {{ appointment.doctor }}</p>
+
+                                <p>Created: {{ appointment.date_created }}</p>
+
+                                <p>Due date: {{ appointment.appointment_date }}</p>
+
+                                <p>Time: {{ appointment.appointment_time }}</p>
+
+                                <p>Description: {{ appointment.description }}</p>
+                                <br>
+                                <a href="{% url 'user:med_his:appointment_edit' pk=appointment.pk %}">Modify
+                                    appointment</a><br><br>
+                                <a href="{% url 'user:med_his:appointment_remove' pk=appointment.pk %}">Remove
+                                    appointment</a><br>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                        {% endif %}
+    <br><a href="{% url 'user:med_his:appointments' %}">Back</a>
+{% endblock %}
+</html>

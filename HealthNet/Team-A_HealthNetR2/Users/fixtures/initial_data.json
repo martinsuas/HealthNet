@@ -1,0 +1,220 @@
+[
+
+  {"pk": 1, "model": "auth.user",
+    "fields": {"username": "admin", "first_name": "", "last_name": "", "is_active": true, "is_superuser": true, "is_staff": true,
+      "last_login": "2015-04-27T20:01:14.045", "groups": [], "user_permissions": [], "password": "pbkdf2_sha256$12000$AJxNrZcPvWuc$Jy9U2VvYlReW45TUW5VfZs4Qn1VynXTuwIOUsKVONG4=",
+      "email": "", "date_joined": "2015-04-27T19:55:59.701"}},
+
+  {"pk": 2, "model": "auth.user", "fields": {"username": "Rosalina", "first_name": "", "last_name": "", "is_active": true, "is_superuser": true, "is_staff": true,
+    "last_login": "2015-04-27T20:04:15.355", "groups": [], "user_permissions": [], "password": "pbkdf2_sha256$12000$Kyd6706TxD60$ZsSJVag+w5qTXS3eUDfLs249a/u1ezFNtqxwqlMAj8E=",
+    "email": "", "date_joined": "2015-04-27T20:04:15.355"}},
+
+  {"pk": 3, "model": "auth.user", "fields": {"username": "Wario", "first_name": "", "last_name": "", "is_active": true, "is_superuser": true, "is_staff": true,
+    "last_login": "2015-04-27T20:05:00.561", "groups": [], "user_permissions": [], "password": "pbkdf2_sha256$12000$h1KALBhQetQk$zZf/VrGtfJ826wQs0o4VGp+Hj8liV4T0tExNNmDw3OA=",
+    "email": "", "date_joined": "2015-04-27T20:05:00.561"}},
+
+  {"pk": 4, "model": "auth.user", "fields": {"username": "Toad", "first_name": "", "last_name": "", "is_active": true, "is_superuser": false, "is_staff": false,
+    "last_login": "2015-04-27T20:05:45.994", "groups": [], "user_permissions": [], "password": "pbkdf2_sha256$12000$sNLQiZ6RfYiq$6p28zVV3z24lLfB19xvgtN3DqGqmhSQj6rUePfTFSEU=",
+    "email": "", "date_joined": "2015-04-27T20:05:45.994"}},
+
+  {"pk": 5, "model": "auth.user", "fields": {"username": "Toadette", "first_name": "", "last_name": "", "is_active": true, "is_superuser": false, "is_staff": false,
+    "last_login": "2015-04-27T20:06:34.411", "groups": [], "user_permissions": [], "password": "pbkdf2_sha256$12000$iFF8iKf5KFAm$dQIIvPPKE1wIIVhaT/BmnCXuWvbq8eK1if1Bs1i9jAc=",
+    "email": "", "date_joined": "2015-04-27T20:06:34.411"}},
+
+  {"pk": 6, "model": "auth.user", "fields": {"username": "DK", "first_name": "", "last_name": "", "is_active": true, "is_superuser": false, "is_staff": false,
+    "last_login": "2015-04-27T20:07:19.167", "groups": [], "user_permissions": [], "password": "pbkdf2_sha256$12000$4TWxK48Ix4tK$9x22dV5C1/DgAIgZ+pbMQHmHvbbUnaVph+/SWebeLog=",
+    "email": "", "date_joined": "2015-04-27T20:07:19.167"}},
+
+  {"pk": 7, "model": "auth.user", "fields": {"username": "Bowser", "first_name": "", "last_name": "", "is_active": true, "is_superuser": false, "is_staff": false,
+    "last_login": "2015-04-27T20:08:06.193", "groups": [], "user_permissions": [], "password": "pbkdf2_sha256$12000$8XExUsTl1iOx$aZ3Ymjm7njKaH1S3hp/X5opU7DJuGs5DLFzPDNerN58=",
+    "email": "", "date_joined": "2015-04-27T20:08:06.193"}},
+
+  {"pk": 8, "model": "auth.user", "fields": {"username": "Yoshi", "first_name": "", "last_name": "", "is_active": true, "is_superuser": false, "is_staff": false,
+    "last_login": "2015-04-27T20:09:06.036", "groups": [], "user_permissions": [], "password": "pbkdf2_sha256$12000$dlRabZThZq6R$Fmx7aE0/Di3RHhCSFO+ZU08BYo/bmujgD98ah0JkAJE=",
+    "email": "", "date_joined": "2015-04-27T20:09:06.036"}},
+
+  {"pk": 9, "model": "auth.user", "fields": {"username": "Goomba", "first_name": "", "last_name": "", "is_active": true, "is_superuser": false, "is_staff": false,
+    "last_login": "2015-04-27T20:10:38.571", "groups": [], "user_permissions": [], "password": "pbkdf2_sha256$12000$GhMRBIAUUfyr$VnJOtR0FK2j89JX5OTDVPwF5tO9r9v8Ufv5WNYJE4pk=",
+    "email": "", "date_joined": "2015-04-27T20:10:38.571"}},
+
+  {"pk": 10, "model": "auth.user", "fields": {"username": "Mario", "first_name": "", "last_name": "", "is_active": true, "is_superuser": false, "is_staff": false,
+    "last_login": "2015-04-27T20:11:40.291", "groups": [], "user_permissions": [], "password": "pbkdf2_sha256$12000$xCylSyouOES2$p06wmTZ1wt4/mxfnxg5oTDio7qo3ZPrzBBK2SXHNFiY=",
+    "email": "", "date_joined": "2015-04-27T20:11:40.291"}},
+
+  {"pk": 11, "model": "auth.user", "fields": {"username": "Luigi", "first_name": "", "last_name": "", "is_active": true, "is_superuser": false, "is_staff": false,
+    "last_login": "2015-04-27T20:12:17.030", "groups": [], "user_permissions": [], "password": "pbkdf2_sha256$12000$sh4a2B4WaWSA$f4tBiJe0HM3cojK+g3xKQRCbVXqr11XGAnikOj2ArLQ=",
+    "email": "", "date_joined": "2015-04-27T20:12:17.030"}},
+
+  {"pk": 12, "model": "auth.user", "fields": {"username": "Peach", "first_name": "", "last_name": "", "is_active": true, "is_superuser": false, "is_staff": false,
+    "last_login": "2015-04-27T20:13:26.898", "groups": [], "user_permissions": [], "password": "pbkdf2_sha256$12000$Z6IPcDFsDPJW$U/aUWqu5cUo/CYzQIzIUT4BrnTCakOvvIDMyNA7AeL8=",
+    "email": "", "date_joined": "2015-04-27T20:13:26.898"}},
+
+  {"pk": 13, "model": "auth.user", "fields": {"username": "Daisy", "first_name": "", "last_name": "", "is_active": true, "is_superuser": false, "is_staff": false,
+    "last_login": "2015-04-27T20:14:02.866", "groups": [], "user_permissions": [], "password": "pbkdf2_sha256$12000$IB1l7rJ7Lpna$yf87U21/BLpAVNLcLlLvgQunhYVMhhzaA+CTSu3qvC8=",
+    "email": "", "date_joined": "2015-04-27T20:14:02.866"}},
+
+
+
+  {"pk": 1, "model": "Users.profile", "fields": {"first_name": "Rosalina", "last_name": "Bros", "middle_name": "", "home_phone_number": "", "cell_phone_number": "",
+    "work_phone_number": "4343534", "role": "Admin", "user": 2, "email": "rosalina@mb.com"}},
+
+  {"pk": 2, "model": "Users.profile", "fields": {"first_name": "Wario", "last_name": "Walder", "middle_name": "", "home_phone_number": "", "cell_phone_number": "",
+    "work_phone_number": "54354343", "role": "Admin", "user": 3, "email": "wario@mb.com"}},
+
+  {"pk": 3, "model": "Users.profile", "fields": {"first_name": "Toad", "last_name": "Mushroom", "middle_name": "", "home_phone_number": "", "cell_phone_number": "",
+    "work_phone_number": "43543343", "role": "Secretary", "user": 4, "email": "toad@ms.com"}},
+
+  {"pk": 4, "model": "Users.profile", "fields": {"first_name": "Toadette", "last_name": "Mushroom", "middle_name": "", "home_phone_number": "", "cell_phone_number": "",
+    "work_phone_number": "45223432", "role": "Secretary", "user": 5, "email": "toadette@mb.com"}},
+
+  {"pk": 5, "model": "Users.profile", "fields": {"first_name": "Donkey", "last_name": "Kong", "middle_name": "", "home_phone_number": "", "cell_phone_number": "",
+    "work_phone_number": "32424323", "role": "Patient", "user": 6, "email": "dk@mb.com"}},
+
+  {"pk": 6, "model": "Users.profile", "fields": {"first_name": "Bowser", "last_name": "Koopa King", "middle_name": "", "home_phone_number": "", "cell_phone_number": "",
+    "work_phone_number": "433243242323", "role": "Patient", "user": 7, "email": "bowser.koopaking@gmail.com"}},
+
+  {"pk": 7, "model": "Users.profile", "fields": {"first_name": "Yoshi", "last_name": "Eggy", "middle_name": "", "home_phone_number": "", "cell_phone_number": "",
+    "work_phone_number": "59454532", "role": "Patient", "user": 8, "email": "yoshi@mb.com"}},
+
+  {"pk": 8, "model": "Users.profile", "fields": {"first_name": "Goomba", "last_name": "Goorio", "middle_name": "", "home_phone_number": "", "cell_phone_number": "",
+    "work_phone_number": "99548432", "role": "Patient", "user": 9, "email": "goomba@e.com"}},
+
+  {"pk": 9, "model": "Users.profile", "fields": {"first_name": "Mario", "last_name": "Bros", "middle_name": "", "home_phone_number": "", "cell_phone_number": "",
+    "work_phone_number": "45435433", "role": "Doctor", "user": 10, "email": "mario@64.com"}},
+
+  {"pk": 10, "model": "Users.profile", "fields": {"first_name": "Luigi", "last_name": "Bros", "middle_name": "", "home_phone_number": "", "cell_phone_number": "",
+    "work_phone_number": "544354343", "role": "Doctor", "user": 11, "email": "luigi@rs.com"}},
+
+  {"pk": 11, "model": "Users.profile", "fields": {"first_name": "Peach", "last_name": "Toadstool", "middle_name": "", "home_phone_number": "", "cell_phone_number": "",
+    "work_phone_number": "423234235", "role": "Nurse", "user": 12, "email": "peachy@mushroom.kingdom.com"}},
+
+  {"pk": 12, "model": "Users.profile", "fields": {"first_name": "Daisy", "last_name": "Deezer", "middle_name": "", "home_phone_number": "", "cell_phone_number": "",
+    "work_phone_number": "9894354343", "role": "Nurse", "user": 13, "email": "daisy@mb.com"}},
+
+  {"pk": 13, "model": "Users.profile", "fields": {"first_name": "admin", "last_name": "admin", "middle_name": "", "home_phone_number": "", "cell_phone_number": "",
+    "work_phone_number": "9894354343", "role": "Admin", "user": 1, "email": "admin@admin.com"}},
+
+  {"pk": 1, "model": "Users.patientprofile", "fields": {"profile": 5, "date_of_birth": "1992-08-15", "home_address": "Jungle 432"}},
+
+  {"pk": 2, "model": "Users.patientprofile", "fields": {"profile": 6, "date_of_birth": "1983-04-27", "home_address": "423 Bowser Castle"}},
+
+  {"pk": 3, "model": "Users.patientprofile", "fields": {"profile": 7, "date_of_birth": "1998-07-01", "home_address": "2132 Mario's House"}},
+
+  {"pk": 4, "model": "Users.patientprofile", "fields": {"profile": 8, "date_of_birth": "2005-01-19", "home_address": "543 Goomba Town"}},
+
+
+  {"pk": 1, "model": "Users.nurseprofile", "fields": {"profile": 11, "patient_list": [2, 4]}},
+
+  {"pk": 2, "model": "Users.nurseprofile", "fields": {"profile": 12, "patient_list": [1, 3]}},
+
+
+  {"pk": 1, "model": "Users.adminprofile", "fields": {"profile": 1}},
+
+  {"pk": 2, "model": "Users.adminprofile", "fields": {"profile": 2}},
+
+
+  {"pk": 1, "model": "Users.doctorprofile", "fields": {"profile": 9, "patient_list": [2, 3, 4]}},
+
+  {"pk": 2, "model": "Users.doctorprofile", "fields": {"profile": 10, "patient_list": [1, 3]}},
+
+
+  {"pk": 1, "model": "Users.secretaryprofile", "fields": {"profile": 3}},
+
+  {"pk": 2, "model": "Users.secretaryprofile", "fields": {"profile": 4}},
+
+
+  {"pk": 1, "model": "MedicalHistory.appointment", "fields": {"appointment_time": "12:00:00",
+      "description": "DK's arm broke...", "appointment_date": "2015-04-29", "doctor": 1, "user": 1, "date_created": "2015-04-27T20:15:01", "name": "Broken Arm"}},
+
+  {"pk": 2, "model": "MedicalHistory.appointment", "fields": {"appointment_time": "06:00:00",
+    "description": "DK needs his teeth fixed", "appointment_date": "2015-05-12", "doctor": 2, "user": 1, "date_created": "2015-04-27T20:15:53", "name": "Broken Teeth"}},
+
+  {"pk": 3, "model": "MedicalHistory.appointment", "fields": {"appointment_time": "12:00:00",
+    "description": "Shell is broken", "appointment_date": "2015-04-29", "doctor": 1, "user": 2, "date_created": "2015-04-27T20:16:28", "name": "Shell Repair"}},
+
+  {"pk": 4, "model": "MedicalHistory.appointment", "fields": {"appointment_time": "20:17:34",
+    "description": "The king needs his fangs sharp", "appointment_date": "2015-05-11", "doctor": 2, "user": 2, "date_created": "2015-04-27T20:17:17", "name": "Fang Polish"}},
+
+  {"pk": 5, "model": "MedicalHistory.appointment", "fields": {"appointment_time": "12:00:00",
+    "description": "Yoshi's tongue is too short", "appointment_date": "2015-04-15", "doctor": 1, "user": 3, "date_created": "2015-04-27T20:18:02", "name": "Tongue Surgery"}},
+
+  {"pk": 6, "model": "MedicalHistory.appointment", "fields": {"appointment_time": "12:00:00",
+    "description": "Yoshi's eggs are weird", "appointment_date": "2015-05-21", "doctor": 2, "user": 3, "date_created": "2015-04-27T20:18:34", "name": "Weird Eggs"}},
+
+  {"pk": 7, "model": "MedicalHistory.appointment", "fields": {"appointment_time": "12:00:00",
+    "description": "Goomba wants to become taller", "appointment_date": "2015-04-17", "doctor": 1, "user": 4, "date_created": "2015-04-27T20:19:10", "name": "Too Short"}},
+
+  {"pk": 8, "model": "MedicalHistory.appointment", "fields": {"appointment_time": "12:00:00",
+    "description": "Goomba doesn't like his looks", "appointment_date": "2015-05-05", "doctor": 2, "user": 4, "date_created": "2015-04-27T20:20:09", "name": "Plastic Surgery"}},
+
+  {"pk": 9, "model": "MedicalHistory.appointment", "fields": {"appointment_time": "12:00:00",
+    "description": "The king's tail needs checkup", "appointment_date": "2015-05-05", "doctor": 1, "user": 2, "date_created": "2015-04-27T20:20:51", "name": "Tail Inspection"}},
+
+
+
+  {"pk": 1, "model": "MedicalHistory.condition", "fields": {"date_diagnosed": "2015-04-27",
+    "date_recovered": null, "user": 1, "currently_afflicted": true, "name": "Monkey Rage"}},
+
+  {"pk": 2, "model": "MedicalHistory.condition", "fields": {"date_diagnosed": "2015-04-15",
+    "date_recovered": null, "user": 2, "currently_afflicted": true, "name": "Anger Issue"}},
+
+  {"pk": 3, "model": "MedicalHistory.condition", "fields": {"date_diagnosed": "2015-04-08",
+    "date_recovered": "2015-04-21", "user": 1, "currently_afflicted": false, "name": "Banana Addiction"}},
+
+  {"pk": 4, "model": "MedicalHistory.condition", "fields": {"date_diagnosed": "2015-04-27",
+    "date_recovered": null, "user": 2, "currently_afflicted": true, "name": "Daddy Issues"}},
+
+  {"pk": 5, "model": "MedicalHistory.condition", "fields": {"date_diagnosed": "2015-04-25",
+    "date_recovered": null, "user": 3, "currently_afflicted": true, "name": "Low Self-Esteem"}},
+
+
+
+  {"pk": 1, "model": "MedicalHistory.insurancepolicy", "fields": {"insurance_id": "9843202483920", "company": "Gorilla Insurance", "user": 1, "policy_number": "874293429832"}},
+
+  {"pk": 2, "model": "MedicalHistory.insurancepolicy", "fields": {"insurance_id": "842039482309", "company": "Ultimate King's Premium Deluxe", "user": 2, "policy_number": "94802384309"}},
+
+  {"pk": 3, "model": "MedicalHistory.insurancepolicy", "fields": {"insurance_id": "984023842", "company": "PETA", "user": 3, "policy_number": "9845230943"}},
+
+  {"pk": 4, "model": "MedicalHistory.insurancepolicy", "fields": {"insurance_id": "04923-4", "company": "Cheap Insurance", "user": 4, "policy_number": "498534"}},
+
+
+
+  {"pk": 1, "model": "MedicalHistory.prescription", "fields": {"refills": 1, "direction": "Drink every night and day",
+    "date_prescribed": "2015-04-27", "doctor": 1, "drug_name": "Banana Pill", "user": 1, "dosage": "2"}},
+
+  {"pk": 2, "model": "MedicalHistory.prescription", "fields": {"refills": 3, "direction": "Drink every night and day",
+    "date_prescribed": "2015-04-17", "doctor": 2, "drug_name": "Concentrated Fire", "user": 2, "dosage": "12 mg"}},
+
+  {"pk": 3, "model": "MedicalHistory.prescription", "fields": {"refills": 0, "direction": "Drink every morning",
+    "date_prescribed": "2015-04-18", "doctor": 1, "drug_name": "Eggs Fortifier", "user": 3, "dosage": "1 g"}},
+
+  {"pk": 4, "model": "MedicalHistory.prescription", "fields": {"refills": 1, "direction": "Apply in scar every day",
+    "date_prescribed": "2015-04-25", "doctor": 1, "drug_name": "Ointment", "user": 4, "dosage": "1 mg"}},
+
+
+
+  {"pk": 1, "model": "Hospital.hospital", "fields": {"capacity": 100, "name": "Mushroom Kingdom Hospital",
+    "admin_list": [1, 2],
+    "secretary_list": [1, 2],
+    "doctor_list": [1, 2],
+    "location": "Mushroom Kingdom",
+    "patient_list": [1, 2, 3, 4],
+    "nurse_list": [1, 2]}},
+
+    {"pk": 2, "model": "Hospital.hospital", "fields": {"capacity": 100, "name": "Toad's Town Memorail Hospital",
+    "admin_list": [1],
+    "secretary_list": [2],
+    "doctor_list": [2],
+    "location": "Toad's Town",
+    "patient_list": [1, 2],
+    "nurse_list": [1]}},
+
+  {"pk": 3, "model": "Hospital.hospital", "fields": {"capacity": 100, "name": "Royal Hospital",
+    "admin_list": [2],
+    "secretary_list": [1],
+    "doctor_list": [1],
+    "location": "Peach Castle",
+    "patient_list": [3, 4],
+    "nurse_list": [2]}}
+
+]

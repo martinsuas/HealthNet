@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Profile{% endblock %}
+
+{% block side_block %}
+
+{% endblock %}
+
+{% block body_block %}
+
+    {% if user.is_authenticated %}
+    <div class="container-fluid"></div>
+    {% if user.is_authenticated %}
+        <div class="row">
+        <div class="col-md-10">
+        <div class="page-header" style="">
+            <h1>Welcome to the HealthNet Hospital Page, {{ user.profile.get_name }}</h1>
+        </div>
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                    Choose Hospital <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    {% for item in hospital_list %}
+                        <li><a href="{% url 'hospital:detail' pk=item.id %}">
+                            {{ item.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </li>
+        </ul>
+
+    {% else %}
+        <script language="javascript">
+            window.location.href = "/"
+        </script>
+    {% endif %}
+
+{% endblock %}
+</html>

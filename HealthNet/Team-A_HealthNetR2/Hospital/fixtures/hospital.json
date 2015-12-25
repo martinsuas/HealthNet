@@ -1,0 +1,26 @@
+[
+    {"pk": 1, "model": "Hospital.hospital", "fields": {"capacity": 100, "name": "Mushroom Kingdom Hospital",
+    "admin_list": [1, 2],
+    "secretary_list": [1, 2],
+    "doctor_list": [1, 2],
+    "location": "Mushroom Kingdom",
+    "patient_list": [1, 2, 3, 4],
+    "nurse_list": [1, 2]}},
+
+    {"pk": 2, "model": "Hospital.hospital", "fields": {"capacity": 100, "name": "Toad's Town Memorail Hospital",
+      "admin_list": [1],
+      "secretary_list": [2],
+      "doctor_list": [2],
+      "location": "Toad's Town",
+      "patient_list": [1, 2],
+      "nurse_list": [1]}},
+
+    {"pk": 3, "model": "Hospital.hospital", "fields": {"capacity": 100, "name": "Royal Hospital",
+      "admin_list": [2],
+      "secretary_list": [1],
+      "doctor_list": [1],
+      "location": "Peach Castle",
+      "patient_list": [3, 4],
+      "nurse_list": [2]}}
+
+]

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<html>
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Profile{% endblock %}
+
+{% block side_block %}
+
+{% endblock %}
+
+{% block body_block %}
+
+    <style type="text/css">
+        .scoll-area {
+            max-height: 300px;
+            position: relative;
+            overflow: auto;
+        }
+
+    </style>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="page-header" style="">
+                    <h1>Welcome to the HealthNet Hospital Page, {{ user.profile.get_name }}</h1>
+                </div>
+                <ul class="nav nav-tabs" style="max-width: 600px">
+                    <li role="presentation"><a
+                            href="{% url "user:profile" username=user.username %}">User Profile</a></li>
+                    <li role="presentation" class="active"><a
+                            href="{% url 'hospital:detail' username=user.username pk=curr_hospital.pk %}">Details</a>
+                    </li>
+                    <li role="presentation"><a
+                            href="{% url 'hospital:admit' username=user.username pk=curr_hospital.pk %}">Admit</a>
+                    <li role="presentation" class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            Change Hospital <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            {% for item in hospital_list %}
+                                <li><a href="{% url 'hospital:detail' username=user.username pk=item.id %}">
+                                    {{ item.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                </ul>
+
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><strong>{{ curr_hospital.name }}</strong><br><h6>
+                            Location: {{ curr_hospital.location }}</h6></h3>
+
+                    </div>
+                    <ul class="list-group">
+
+                        <li class="list-group-item" id="accordion" role="tablist" aria-multiselectable="true">
+                            <span class="badge"> {{ num_patients }}/{{ curr_hospital.capacity }}</span>
+                            <a class="panel-title" data-toggle="collapse" data-parent="#accordion"
+                               href="#collapsePatients"
+                               aria-expanded="true" aria-controls="collapsePatients">Patients</a>
+
+                            <div id="collapsePatients" class="panel-collapse collapse out" role="tabpanel"
+                                 aria-labelledby="headingPatients">
+                                <div class="well" data-spy="scroll" data-offset="0"
+                                     style="max-height: 200px;overflow: auto">
+                                    <table class="table">
+                                        <thead>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Username</th>
+                                        </thead>
+                                        <tbody class="scoll-area">
+                                        {% for patient in curr_hospital.patient_list.all %}
+                                            <tr>
+                                                <td scope="row">{{ patient.profile.first_name }}</td>
+                                                <td>{{ patient.profile.last_name }}</td>
+                                                <td>{{ patient.profile.user.username }}</td>
+
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="list-group-item" id="accordion" role="tablist" aria-multiselectable="true">
+                            <span class="badge"> {{ num_doctors }}</span>
+                            <a class="panel-title" data-toggle="collapse" data-parent="#accordion"
+                               href="#collapseDoctors"
+                               aria-expanded="true" aria-controls="collapseDoctors">Doctors</a>
+
+                            <div id="collapseDoctors" class="panel-collapse collapse out" role="tabpanel"
+                                 aria-labelledby="headingDoctors">
+                                <div class="well" data-spy="scroll" data-offset="0"
+                                     style="max-height: 200px;overflow: auto">
+                                    <table class="table">
+                                        <thead>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Username</th>
+                                        </thead>
+                                        <tbody class="scoll-area">
+                                        {% for doctor in curr_hospital.doctor_list.all %}
+                                            <tr>
+                                                <td scope="row">{{ doctor.profile.first_name }}</td>
+                                                <td>{{ doctor.profile.last_name }}</td>
+                                                <td>{{ doctor.profile.user.username }}</td>
+
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item" id="accordion" role="tablist" aria-multiselectable="true"
+                            style="max-height: 400px;overflow: auto">
+                            <span class="badge"> {{ num_staff }}</span>
+                            <a class="panel-title" data-toggle="collapse" data-parent="#accordion" href="#collapseStaff"
+                               aria-expanded="true" aria-controls="collapseStaff">Staff</a>
+
+                            <div id="collapseStaff" class="panel-collapse collapse out" role="tabpanel"
+                                 aria-labelledby="headingStaff">
+
+                                <ul class="list-group">
+                                    <li class="list-group-item" id="accordion" role="tablist"
+                                        aria-multiselectable="true" style="max-height: 400px;overflow: auto">
+                                        <a class="panel-title" data-toggle="collapse" data-parent="#accordion"
+                                           href="#collapseNurse"
+                                           aria-expanded="true" aria-controls="collapseNurse">Nurses</a>
+
+                                        <div id="collapseNurse" class="panel-collapse collapse out" role="tabpanel"
+                                             aria-labelledby="headingNurse">
+                                            <div class="well" data-spy="scroll" data-offset="0"
+                                                 style="max-height: 200px;overflow: auto">
+                                                <table class="table">
+                                                    <thead>
+                                                    <th>First Name</th>
+                                                    <th>Last Name</th>
+                                                    <th>Username</th>
+                                                    </thead>
+                                                    <tbody class="scoll-area">
+                                                    {% for staff in curr_hospital.nurse_list.all %}
+                                                        <tr>
+                                                            <td scope="row">{{ staff.profile.first_name }}</td>
+                                                            <td>{{ staff.profile.last_name }}</td>
+                                                            <td>{{ staff.profile.user.username }}</td>
+
+                                                        </tr>
+                                                    {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item" id="accordion" role="tablist"
+                                        aria-multiselectable="true" style="max-height: 400px;overflow: auto">
+                                        <a class="panel-title" data-toggle="collapse" data-parent="#accordion"
+                                           href="#collapseSecretary"
+                                           aria-expanded="true" aria-controls="collapseSecretary">Secretaries</a>
+
+                                        <div id="collapseSecretary" class="panel-collapse collapse out" role="tabpanel"
+                                             aria-labelledby="headingSecretary">
+                                            <div class="well" data-spy="scroll" data-offset="0"
+                                                 style="max-height: 200px;overflow: auto">
+                                                <table class="table">
+                                                    <thead>
+                                                    <th>First Name</th>
+                                                    <th>Last Name</th>
+                                                    <th>Username</th>
+                                                    </thead>
+                                                    <tbody class="scoll-area">
+                                                    {% for staff in curr_hospital.secretary_list.all %}
+                                                        <tr>
+                                                            <td scope="row">{{ staff.profile.first_name }}</td>
+                                                            <td>{{ staff.profile.last_name }}</td>
+                                                            <td>{{ staff.profile.user.username }}</td>
+
+                                                        </tr>
+                                                    {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item" id="accordion" role="tablist"
+                                        aria-multiselectable="true" style="max-height: 400px;overflow: auto">
+                                        <a class="panel-title" data-toggle="collapse" data-parent="#accordion"
+                                           href="#collapseAdmin"
+                                           aria-expanded="true" aria-controls="collapseAdmin">Admins</a>
+
+                                        <div id="collapseAdmin" class="panel-collapse collapse out" role="tabpanel"
+                                             aria-labelledby="headingAdmin">
+                                            <div class="well" data-spy="scroll" data-offset="0"
+                                                 style="max-height: 200px;overflow: auto">
+                                                <table class="table">
+                                                    <thead>
+                                                    <th>First Name</th>
+                                                    <th>Last Name</th>
+                                                    <th>Username</th>
+                                                    </thead>
+                                                    <tbody class="scoll-area">
+                                                    {% for staff in curr_hospital.admin_list.all %}
+                                                        <tr>
+                                                            <td scope="row">{{ staff.profile.first_name }}</td>
+                                                            <td>{{ staff.profile.last_name }}</td>
+                                                            <td>{{ staff.profile.user.username }}</td>
+
+                                                        </tr>
+                                                    {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+</html>

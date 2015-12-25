@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Profile{% endblock %}
+
+{% block side_block %}
+
+{% endblock %}
+
+{% block body_block %}
+    <div class="container-fluid">
+    <div class="row">
+    <div class="col-md-10">
+    <div class="page-header" style="">
+        <h1>Welcome to HealthNet, {{ user.profile.get_name }}</h1>
+    </div>
+    <div class="profile-tabs">
+        <ul class="nav nav-tabs" style="">
+            <li role="presentation" class="active"><a
+                    href="{% url "user:profile" username=user.username %}">User Details</a></li>
+            <li role="presentation"><a href="{% url 'user:med_his:appointments' %}">Appointments</a>
+            <li role="presentation"><a href="{% url 'admin:index' %}">Admin Panel</a>
+            </li>
+            <li role="presentation"><a href="{% url 'statistics:index' %}">Statistics</a>
+            </li>
+            <li role="presentation" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                    Choose Hospital <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    {% for item in hospital_list %}
+                        <li><a href="{% url 'hospital:detail' username=user.username pk=item.id %}">
+                            {{ item.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+<ul>
+    <li><a href="{% url "statistics:logs" %}">Logs</a></li>
+</ul>
+{% endblock %}
+</html>

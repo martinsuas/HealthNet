@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Profile{% endblock %}
+
+{% block side_block %}
+
+{% endblock %}
+
+{% block body_block %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="page-header" style="">
+                    <h1>Welcome to HealthNet, {{ user.profile.get_name }}</h1>
+                </div>
+                <div class="profile-tabs">
+                    <ul class="nav nav-tabs" style="">
+                        <li role="presentation"><a
+                                href="{% url "user:profile" username=user.username %}">User Details</a></li>
+                        <li role="presentation"><a href="{% url 'user:med_his:appointments' %}">Appointments</a>
+                        <li role="presentation"><a href="{% url 'user:med_his:prescriptions' username=user.username %}">Prescriptions</a>
+                        </li>
+                        <li role="presentation"><a href="{% url 'user:med_his:conditions' username=user.username %}">Conditions</a>
+                        </li>
+                        <li role="presentation" class="dropdown active"><a
+                                href="{% url "user:patient_search" username=user.username %}">Patients</a></li>
+                        <li role="presentation"><a
+                                href="{% url 'user:med_his:tests' username=user.username %}">Tests</a></li>
+                        <li role="presentation" class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                Choose Hospital <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                {% for item in hospital_list %}
+                                    <li><a href="{% url 'hospital:detail' username=user.username pk=item.id %}">
+                                        {{ item.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><strong> Search for patient:</strong></h3>
+                        </div>
+                        <div class="row">
+                            <div class="panel-body container">
+                                {% if error %}
+                                    <div class="row">
+                                        <div class="col-sm-offset-1 col-sm-4 alert alert-warning alert-dismissible"
+                                             role="alert">
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span></button>
+                                            No user found.
+                                        </div>
+                                    </div>
+                                {% endif %}
+                                <form class="form-horizontal" role="form" method="post" action=".">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <label for="inputSearch" class="col-sm-2 control-label">Search by
+                                            Username</label>
+
+                                        <div class="col-sm-5">
+                                            <select class="form-control" name="query">
+                                                {% for item in patients %}
+                                                    <option value="{{ item.profile.user }}">{{ item.profile.user.username }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                        <button type="submit" class=" btn btn-primary">Search</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+</html>

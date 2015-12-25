@@ -1,0 +1,6 @@
+[
+
+  {"pk": 1, "model": "Users.doctorprofile", "fields": {"profile": 9, "patient_list": [2, 3, 4]}},
+
+  {"pk": 2, "model": "Users.doctorprofile", "fields": {"profile": 10, "patient_list": [1, 3]}}
+]

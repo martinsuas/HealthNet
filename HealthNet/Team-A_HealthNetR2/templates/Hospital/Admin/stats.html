@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html>
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Profile{% endblock %}
+
+{% block side_block %}
+
+{% endblock %}
+
+{% block body_block %}
+
+    <style type="text/css">
+        .scoll-area {
+            max-height: 300px;
+            position: relative;
+            overflow: auto;
+        }
+
+    </style>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-header" style="">
+                    <h1>Welcome to the HealthNet Hospital Page, {{ user.profile.get_name }}</h1>
+                </div>
+                <ul class="nav nav-tabs" style="max-width: 700px">
+                    <li role="presentation"><a
+                            href="{% url "user:profile" username=user.username %}">User Profile</a></li>
+                    <li role="presentation"><a
+                            href="{% url 'hospital:detail' username=user.username pk=curr_hospital.pk %}">Details</a>
+                    </li>
+                    <li role="presentation" class="active"><a
+                            href="{% url 'hospital:stats' username=user.username pk=curr_hospital.pk %}">Statistics</a>
+                    </li>
+
+                    <li role="presentation"><a
+                            href="{% url 'hospital:admit' username=user.username pk=curr_hospital.pk %}">Admit</a>
+                    </li>
+                    <li role="presentation"><a
+                            href="{% url 'hospital:discharge' username=user.username pk=curr_hospital.pk %}">Discharge</a>
+                    </li>
+                    <li role="presentation"><a
+                            href="{% url 'hospital:transfer' username=user.username pk=curr_hospital.pk %}">Transfer</a>
+                    </li>
+                    <li role="presentation" class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            Change Hospital <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            {% for item in hospital_list %}
+                                <li><a href="{% url 'hospital:detail' username=user.username pk=item.id %}">
+                                    {{ item.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                </ul>
+
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><strong>{{ curr_hospital.name }}</strong><br>
+                            <h6>Location: {{ curr_hospital.location }}</h6></h3>
+                    </div>
+                    <ul class="list-group">
+
+                        <li class="list-group-item" id="accordion" role="tablist" aria-multiselectable="true">
+                            <a class="panel-title" data-toggle="collapse" data-parent="#accordion"
+                               href="#collapseCond"
+                               aria-expanded="true" aria-controls="collapseCond">Conditions</a>
+
+                            <div id="collapseCond" class="panel-collapse collapse out" role="tabpanel"
+                                 aria-labelledby="headingCond">
+                                <div class="well" data-spy="scroll" data-offset="0"
+                                     style="max-height: 200px;overflow: auto">
+                                    <table class="table">
+                                        <thead>
+                                        <th>Number of Afflicted</th>
+                                        <th>Name</th>
+                                        </thead>
+                                        <tbody class="scoll-area">
+                                        {% for item in top_conditions %}
+                                            <tr>
+                                                <td scope="row">{{ item }}</td>
+                                                <td>{{ item }}</td>
+
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item" id="accordion" role="tablist" aria-multiselectable="true">
+                            <a class="panel-title" data-toggle="collapse" data-parent="#accordion"
+                               href="#collapseCond"
+                               aria-expanded="true" aria-controls="collapseCond">Prescriptions</a>
+
+                            <div id="collapseCond" class="panel-collapse collapse out" role="tabpanel"
+                                 aria-labelledby="headingCond">
+                                <div class="well" data-spy="scroll" data-offset="0"
+                                     style="max-height: 200px;overflow: auto">
+                                    <table class="table">
+                                        <thead>
+                                        <th>Number of Users</th>
+                                        <th>Drug Name</th>
+                                        </thead>
+                                        <tbody class="scoll-area">
+                                        {% for item in top_conditions %}
+                                            <tr>
+                                                <td scope="row">{{ item }}</td>
+                                                <td>{{ item }}</td>
+
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item" id="accordion" role="tablist" aria-multiselectable="true">
+                            <a class="panel-title" data-toggle="collapse" data-parent="#accordion"
+                               href="#collapseCond"
+                               aria-expanded="true" aria-controls="collapseCond">Insurance Companies</a>
+
+                            <div id="collapseCond" class="panel-collapse collapse out" role="tabpanel"
+                                 aria-labelledby="headingCond">
+                                <div class="well" data-spy="scroll" data-offset="0"
+                                     style="max-height: 200px;overflow: auto">
+                                    <table class="table">
+                                        <thead>
+                                        <th>Number of Patients</th>
+                                        <th>Company Name</th>
+                                        </thead>
+                                        <tbody class="scoll-area">
+                                        {% for item in top_conditions %}
+                                            <tr>
+                                                <td scope="row">{{ item }}</td>
+                                                <td>{{ item }}</td>
+
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Profile{% endblock %}
+
+{% block body_block %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="page-header" style="">
+                    <h1>Welcome to HealthNet, {{ user.profile.get_name }}</h1>
+                </div>
+                <div class="profile-tabs">
+                    <ul class="nav nav-tabs" style="">
+                        {% if user.profile.role == "Doctor" %}
+                            <li role="presentation"><a
+                                    href="{% url "user:profile" username=user.username %}">User Details</a></li>
+                            <li role="presentation" class="active"><a href="{% url 'user:med_his:appointments' %}">Appointments</a>
+                            <li role="presentation"><a
+                                    href="{% url 'user:med_his:prescriptions' username=user.username %}">Prescriptions</a>
+                            </li>
+                            <li role="presentation"><a
+                                    href="{% url 'user:med_his:conditions' username=user.username %}">Conditions</a>
+                            </li>
+                            <li role="presentation" class="dropdown"><a
+                                    href="{% url "user:patient_search" username=user.username %}">Patients</a>
+                            </li>
+                            <li role="presentation"><a href="{% url 'user:med_his:tests' username=user.username %}">Tests</a>
+                            </li>
+                            <li role="presentation" class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-expanded="false">
+                                    Choose Hospital <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    {% for item in hospital_list %}
+                                        <li><a href="{% url 'hospital:detail' username=user.username pk=item.id %}">
+                                            {{ item.name }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                        {% elif user.profile.role == 'Patient' %}
+                            <li role="presentation"><a
+                                    href="{% url "user:profile" username=user.username %}">User Details</a></li>
+                            <li role="presentation"><a
+                                    href="{% url "user:med_his:insurance" username=user.username %}">Insurance</a>
+                            </li>
+                            <li role="presentation"><a href="{% url 'user:contact' username=user.username %}">Emergency
+                                Contacts</a></li>
+                            <li role="presentation" class="active"><a href="{% url 'user:med_his:appointments' %}">Appointments</a>
+
+                            <li role="presentation"><a
+                                    href="{% url "user:med_his:conditions" username=user.username %}">Conditions</a>
+                            </li>
+                            <li role="presentation"><a href="{% url "user:med_his:tests" username=user.username %}">Test
+                                Results</a></li>
+                            <li role="presentation"><a
+                                    href="{% url "user:med_his:prescriptions" username=user.username %}">Prescriptions</a>
+                            </li>
+                            <li role="presentation"><a
+                                    href="{% url "user:med_his:export" username=user.username %}">Export</a>
+                            </li>
+                        {% elif user.profile.role == 'Secretary' %}
+                            <div class="profile-tabs">
+                                <ul class="nav nav-tabs" style="">
+                                    <li role="presentation"><a
+                                            href="{% url "user:profile" username=user.username %}">User Details</a></li>
+                                    <li role="presentation" class="active"><a
+                                            href="{% url 'user:med_his:appointments' %}">Appointments</a></li>
+                                    <li role="presentation"><a
+                                            href="{% url "user:patient_search" username=user.username %}">Patients</a>
+                                    </li>
+                                    <li role="presentation" class="dropdown">
+
+                                        <a class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                           aria-expanded="false">
+                                            Choose Hospital <span class="caret"></span></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            {% for item in hospital_list %}
+                                                <li>
+                                                    <a href="{% url 'hospital:detail' username=user.username pk=item.id %}">
+                                                        {{ item.name }}</a></li>
+                                            {% endfor %}
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        {% elif user.profile.role == 'Nurse' %}
+                        {% elif user.profile.role == 'Admin' %}
+                            <li role="presentation"><a
+                                    href="{% url "user:profile" username=user.username %}">User Details</a></li>
+                            <li role="presentation" class="active"><a href="{% url 'user:med_his:appointments' %}">Appointments</a>
+                            <li role="presentation"><a href="{% url 'admin:index' %}">Admin Panel</a>
+                            </li>
+                            <li role="presentation"><a href="{% url 'statistics:logs' %}">Logs</a>
+                            </li>
+                            <li role="presentation" class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    Choose Hospital <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    {% for item in hospital_list %}
+                                        <li><a href="{% url 'hospital:detail' username=user.username pk=item.id %}">
+                                            {{ item.name }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><strong>New Appointments:</strong></h3>
+                    </div>
+                    <ul class="list-group">
+                        {% if warning %}
+                            <div class="alert alert-warning alert-dismissible" role="alert" style="max-width: 450px">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                        aria-hidden="true">&times;</span></button>
+                                {{ warning }}.
+                            </div>
+                        {% endif %}
+                        <form class="form-horizontal" role="form" method="post" action=".">
+                            {% csrf_token %}
+                            <li class="list-group-item" role="tablist">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">User:</label>
+
+                                    <div class="col-sm-6 input-group">
+                                        <input required="true" type="text" class="form-control"
+                                               id="input-User" name="User">
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="list-group-item" role="tablist">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Doctor:</label>
+
+                                    <div class="col-sm-6 input-group">
+                                        <input required="true" type="text" class="form-control"
+                                               id="input-Doctor" name="Doctor">
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="list-group-item" role="tablist">
+                                <div class="form-group">
+                                    <label required="true" class="col-sm-2 control-label">Name:</label>
+
+                                    <div class="col-sm-6">
+                                        <input required="true" type="text" class="form-control"
+                                               id="input-Name" name="Name">
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="list-group-item" role="tablist">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Date:</label>
+
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <input required="true" type="date" class="form-control"
+                                                   id="input-Date" name="Date">
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <input required="true" type="time" class="form-control"
+                                                   id="input-Time" name="Time">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="list-group-item" role="tablist">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Description:</label>
+
+                                    <div class="col-sm-6">
+                                        <textarea required="true" class="form-control" rows="5" id="input-Description"
+                                                  name="Description"></textarea>
+                                    </div>
+                                </div>
+                            </li>
+                            <div class="col-md-1 col-md-offset-10 col-xs-offset-4">
+                                <button type="submit" class="btn btn-default" autofocus="">
+                                    <span class="glyphicon glyphicon-save" aria-hidden="true"></span> Save
+                                </button>
+                            </div>
+                        </form>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+</html>

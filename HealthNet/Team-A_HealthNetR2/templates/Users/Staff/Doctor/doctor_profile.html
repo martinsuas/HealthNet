@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Profile{% endblock %}
+
+{% block side_block %}
+
+{% endblock %}
+
+{% block body_block %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="page-header" style="">
+                    <h1>Welcome to HealthNet, {{ user.profile.get_name }}</h1>
+                </div>
+                <div class="profile-tabs">
+                    <ul class="nav nav-tabs" style="">
+                        <li role="presentation" class="active"><a
+                                href="{% url "user:profile" username=user.username %}">User Details</a></li>
+                        <li role="presentation"><a href="{% url 'user:med_his:appointments' %}">Appointments</a>
+                        <li role="presentation"><a href="{% url 'user:med_his:prescriptions' username=user.username %}">Prescriptions</a>
+                        </li>
+                        <li role="presentation"><a href="{% url 'user:med_his:conditions' username=user.username %}">Conditions</a>
+                        </li>
+                        <li role="presentation"><a href="{% url "user:patient_search" username=user.username %}">Patients</a>
+                        </li>
+                        <li role="presentation"><a
+                                href="{% url 'user:med_his:tests' username=user.username %}">Tests</a></li>
+                        <li role="presentation" class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                Choose Hospital <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                {% for item in hospital_list %}
+                                    <li><a href="{% url 'hospital:detail' username=user.username pk=item.id %}">
+                                        {{ item.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><strong>{{ user.profile.get_name }}</strong></h3>
+                    </div>
+                    <ul class="list-group">
+                        <form class="form-horizontal">
+
+                            <li class="list-group-item" role="tablist" style="max-height: 50px">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Username:</label>
+
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static">{{ user.username }}</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item" role="tablist" style="max-height: 50px">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">First Name:</label>
+
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static">{{ user.profile.first_name }}</p>
+                                    </div>
+                                </div>
+                                {% if user.profile.middle_name != "" %}
+                                    <li class="list-group-item" role="tablist" style="max-height: 50px">
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Middle Name:</label>
+
+                                            <div class="col-sm-10">
+                                                <p class="form-control-static">{{ user.profile.middle_name }}</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                {% endif %}
+                            <li class="list-group-item" role="tablist" style="max-height: 50px">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Last Name:</label>
+
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static">{{ user.profile.last_name }}</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item" role="tablist" style="max-height: 50px">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Email:</label>
+
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static">{{ user.profile.email }}</p>
+                                    </div>
+                                </div>
+                            </li>
+                            {% if user.profile.home_phone_number != "" %}
+                                <li class="list-group-item" role="tablist" style="max-height: 50px">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Home Phone:</label>
+
+                                        <div class="col-sm-10">
+                                            <p class="form-control-static">{{ user.profile.home_phone_number }}</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            {% endif %}
+                            <li class="list-group-item" role="tablist" style="max-height: 50px">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Work Phone:</label>
+
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static">{{ user.profile.work_phone_number }}</p>
+                                    </div>
+                                </div>
+                            </li>
+                            {% if user.profile.cell_phone_number != "" %}
+                                <li class="list-group-item" role="tablist" style="max-height: 50px">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Cell Phone:</label>
+
+                                        <div class="col-sm-10">
+                                            <p class="form-control-static">{{ user.profile.cell_phone_number }}</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            {% endif %}
+                            <li class="list-group-item" id="accordion" role="tablist" aria-multiselectable="true"
+                                style="padding-top: 0px; padding-bottom: 0px">
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <label class="col-sm-2 control-label">
+                                            <a data-toggle="collapse" data-parent="#accordion"
+                                               href="#collapsePatients "
+                                               aria-expanded="true" aria-controls="collapsePatients"
+                                               style="color: #333">
+                                                Patient List:</a>
+                                        </label>
+
+                                        <div class="col-sm-10">
+                                            <p></p>
+                                        </div>
+                                    </div>
+
+                                    <div id="collapsePatients" class="panel-collapse collapse out"
+                                         role="tablist"
+                                         aria-labelledby="headingPatients">
+                                        <div class="well" data-spy="scroll" data-offset="0">
+                                            <table class="table">
+                                                <thead>
+                                                <th>First Name</th>
+                                                <th>Last Name</th>
+                                                <th>Username</th>
+                                                </thead>
+                                                <tbody class="scoll-area">
+                                                {% for patient in user.profile.doctorprofile.patient_list.all %}
+                                                    <tr>
+
+                                                        <td scope="row">
+                                                            <a href="{% url "user:view_patient" username=user.username patient=patient.profile.user.username %}"
+                                                               style="color: #000000">
+                                                                {{ patient.profile.first_name }}
+                                                            </a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="{% url "user:view_patient" username=user.username patient=patient.profile.user.username %}"
+                                                               style="color: #000000">
+                                                                {{ patient.profile.last_name }}
+                                                            </a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="{% url "user:view_patient" username=user.username patient=patient.profile.user.username %}"
+                                                               style="color: #000000">
+                                                                {{ patient.profile.user.username }}
+                                                            </a>
+                                                        </td>
+                                                        </a>
+                                                        <td>
+                                                            <a href="{% url 'user:remove_patient' username=user.username pk=patient.pk %}">
+                                                                <button type="button"
+                                                                        class="button btn-default badge"
+                                                                        style="border: 0; background-color: #d9534f">
+                                                                    <span class="glyphicon glyphicon-minus align-right "></span>
+                                                                </button>
+                                                            </a>
+                                                        </td>
+
+                                                    </tr>
+                                                {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </form>
+                    </ul>
+                    <div class="col-md-1 col-md-offset-10 col-xs-offset-4 ">
+                        <a type="button" class="btn btn-default"
+                           href="{% url "user:edit" username=user.username %}">
+                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Edit
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+</html>
